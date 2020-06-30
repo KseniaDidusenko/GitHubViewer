@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -48,7 +48,6 @@
 				50321A0133B4767376617F53 /* Pods-GitHubViewer.debug.xcconfig */,
 				56BB52AF91F9735337989E27 /* Pods-GitHubViewer.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,13 +82,69 @@
 			children = (
 				CE8EBDE124AB7F570020B923 /* AppDelegate.swift */,
 				CE8EBDE324AB7F570020B923 /* SceneDelegate.swift */,
-				CE8EBDE524AB7F570020B923 /* ViewController.swift */,
-				CE8EBDE724AB7F570020B923 /* Main.storyboard */,
-				CE8EBDEA24AB7F5B0020B923 /* Assets.xcassets */,
-				CE8EBDEC24AB7F5B0020B923 /* LaunchScreen.storyboard */,
-				CE8EBDEF24AB7F5B0020B923 /* Info.plist */,
+				CE8EBDF524AB8EC70020B923 /* Extensions */,
+				CE8EBDF624AB8ED60020B923 /* Services */,
+				CE8EBDFB24AB8F170020B923 /* Models */,
+				CE8EBDFA24AB8F0C0020B923 /* ViewControllers */,
+				CE8EBDF924AB8F010020B923 /* Storyboards */,
+				CE8EBDF824AB8EEF0020B923 /* Resources */,
+				CE8EBDF724AB8EE50020B923 /* Supporting files */,
 			);
 			path = GitHubViewer;
+			sourceTree = "<group>";
+		};
+		CE8EBDF524AB8EC70020B923 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE8EBDF624AB8ED60020B923 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CE8EBDF724AB8EE50020B923 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				CE8EBDEF24AB7F5B0020B923 /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		CE8EBDF824AB8EEF0020B923 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE8EBDEA24AB7F5B0020B923 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CE8EBDF924AB8F010020B923 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CE8EBDEC24AB7F5B0020B923 /* LaunchScreen.storyboard */,
+				CE8EBDE724AB7F570020B923 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		CE8EBDFA24AB8F0C0020B923 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE8EBDE524AB7F570020B923 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CE8EBDFB24AB8F170020B923 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,15 +409,17 @@
 			baseConfigurationReference = 50321A0133B4767376617F53 /* Pods-GitHubViewer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2WFPXMG3LN;
-				INFOPLIST_FILE = GitHubViewer/Info.plist;
+				INFOPLIST_FILE = "GitHubViewer/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.didusenko.oksana.GitHubViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -373,15 +430,17 @@
 			baseConfigurationReference = 56BB52AF91F9735337989E27 /* Pods-GitHubViewer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2WFPXMG3LN;
-				INFOPLIST_FILE = GitHubViewer/Info.plist;
+				INFOPLIST_FILE = "GitHubViewer/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.didusenko.oksana.GitHubViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
