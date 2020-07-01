@@ -17,10 +17,14 @@ class SignInViewController: UIViewController {
   // MARK: - Private properties
 
   // MARK: - View controller view's lifecycle
+  var signInView = SignInView()
 
+  override func loadView() {
+      view = signInView
+  }
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .purple
+//    view.backgroundColor = .purple
   }
 
   // MARK: - Navigation

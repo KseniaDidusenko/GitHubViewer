@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CAA4542B9C7A0B8B62370380 /* Pods_GitHubViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765C59C863DCBC40AB11CC01 /* Pods_GitHubViewer.framework */; };
+		CE03382E24AD3C2800F73115 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03382D24AD3C2800F73115 /* SignInView.swift */; };
+		CE03383024AD414600F73115 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03382F24AD414600F73115 /* UIColor+Extensions.swift */; };
 		CE8EBDE224AB7F570020B923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBDE124AB7F570020B923 /* AppDelegate.swift */; };
 		CE8EBDE424AB7F570020B923 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBDE324AB7F570020B923 /* SceneDelegate.swift */; };
 		CE8EBDE924AB7F570020B923 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8EBDE724AB7F570020B923 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 		50321A0133B4767376617F53 /* Pods-GitHubViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubViewer.debug.xcconfig"; path = "Target Support Files/Pods-GitHubViewer/Pods-GitHubViewer.debug.xcconfig"; sourceTree = "<group>"; };
 		56BB52AF91F9735337989E27 /* Pods-GitHubViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubViewer.release.xcconfig"; path = "Target Support Files/Pods-GitHubViewer/Pods-GitHubViewer.release.xcconfig"; sourceTree = "<group>"; };
 		765C59C863DCBC40AB11CC01 /* Pods_GitHubViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE03382D24AD3C2800F73115 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		CE03382F24AD414600F73115 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		CE8EBDDE24AB7F570020B923 /* GitHubViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8EBDE124AB7F570020B923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE8EBDE324AB7F570020B923 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +65,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE03382C24AD3C0F00F73115 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE03382D24AD3C2800F73115 /* SignInView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CE8EBDD524AB7F560020B923 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +94,7 @@
 		CE8EBDE024AB7F570020B923 /* GitHubViewer */ = {
 			isa = PBXGroup;
 			children = (
+				CE03382C24AD3C0F00F73115 /* Views */,
 				CE8EBDE124AB7F570020B923 /* AppDelegate.swift */,
 				CE8EBDE324AB7F570020B923 /* SceneDelegate.swift */,
 				CE8EBDF524AB8EC70020B923 /* Extensions */,
@@ -98,6 +111,7 @@
 		CE8EBDF524AB8EC70020B923 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CE03382F24AD414600F73115 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -266,9 +280,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE8EBDFF24ABBB2D0020B923 /* SignInViewController.swift in Sources */,
+				CE03383024AD414600F73115 /* UIColor+Extensions.swift in Sources */,
 				CE8EBDE224AB7F570020B923 /* AppDelegate.swift in Sources */,
 				CE8EBDE424AB7F570020B923 /* SceneDelegate.swift in Sources */,
 				CE8EBDFD24ABBAA30020B923 /* MainInfoViewController.swift in Sources */,
+				CE03382E24AD3C2800F73115 /* SignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +433,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2WFPXMG3LN;
 				INFOPLIST_FILE = "GitHubViewer/Supporting files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,6 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2WFPXMG3LN;
 				INFOPLIST_FILE = "GitHubViewer/Supporting files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
