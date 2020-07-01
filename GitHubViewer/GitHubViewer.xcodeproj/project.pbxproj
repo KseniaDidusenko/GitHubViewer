@@ -10,10 +10,11 @@
 		CAA4542B9C7A0B8B62370380 /* Pods_GitHubViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765C59C863DCBC40AB11CC01 /* Pods_GitHubViewer.framework */; };
 		CE8EBDE224AB7F570020B923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBDE124AB7F570020B923 /* AppDelegate.swift */; };
 		CE8EBDE424AB7F570020B923 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBDE324AB7F570020B923 /* SceneDelegate.swift */; };
-		CE8EBDE624AB7F570020B923 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBDE524AB7F570020B923 /* ViewController.swift */; };
 		CE8EBDE924AB7F570020B923 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8EBDE724AB7F570020B923 /* Main.storyboard */; };
 		CE8EBDEB24AB7F5B0020B923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8EBDEA24AB7F5B0020B923 /* Assets.xcassets */; };
 		CE8EBDEE24AB7F5B0020B923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8EBDEC24AB7F5B0020B923 /* LaunchScreen.storyboard */; };
+		CE8EBDFD24ABBAA30020B923 /* MainInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBDFC24ABBAA30020B923 /* MainInfoViewController.swift */; };
+		CE8EBDFF24ABBB2D0020B923 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBDFE24ABBB2D0020B923 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,11 +24,12 @@
 		CE8EBDDE24AB7F570020B923 /* GitHubViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8EBDE124AB7F570020B923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE8EBDE324AB7F570020B923 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE8EBDE524AB7F570020B923 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE8EBDE824AB7F570020B923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE8EBDEA24AB7F5B0020B923 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE8EBDED24AB7F5B0020B923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE8EBDEF24AB7F5B0020B923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE8EBDFC24ABBAA30020B923 /* MainInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoViewController.swift; sourceTree = "<group>"; };
+		CE8EBDFE24ABBB2D0020B923 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +137,8 @@
 		CE8EBDFA24AB8F0C0020B923 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CE8EBDE524AB7F570020B923 /* ViewController.swift */,
+				CE8EBDFC24ABBAA30020B923 /* MainInfoViewController.swift */,
+				CE8EBDFE24ABBB2D0020B923 /* SignInViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -262,9 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE8EBDE624AB7F570020B923 /* ViewController.swift in Sources */,
+				CE8EBDFF24ABBB2D0020B923 /* SignInViewController.swift in Sources */,
 				CE8EBDE224AB7F570020B923 /* AppDelegate.swift in Sources */,
 				CE8EBDE424AB7F570020B923 /* SceneDelegate.swift in Sources */,
+				CE8EBDFD24ABBAA30020B923 /* MainInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +425,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -442,7 +446,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
