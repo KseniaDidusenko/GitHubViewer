@@ -17,6 +17,7 @@ class SignInViewController: UIViewController {
   // MARK: - Private properties
 
   // MARK: - View controller view's lifecycle
+
   var signInView = SignInView()
 
   override func loadView() {
@@ -25,6 +26,9 @@ class SignInViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 //    view.backgroundColor = .purple
+    signInView.didButtonTapped = { [weak self] button in
+      self?.signInButtonTapped(button)
+    }
   }
 
   // MARK: - Navigation
@@ -35,4 +39,7 @@ class SignInViewController: UIViewController {
 
   // MARK: - Private API
 
+  private func signInButtonTapped(_ sender: UIButton) {
+    print("Sign In")
+  }
 }

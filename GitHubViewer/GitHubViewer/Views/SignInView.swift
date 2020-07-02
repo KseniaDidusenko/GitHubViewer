@@ -13,6 +13,8 @@ class SignInView: UIView {
 
   // MARK: - Public properties
 
+  var didButtonTapped: ((_ : UIButton) -> Void)?
+
   // MARK: - Outlets
 
   // MARK: - Private properties
@@ -61,9 +63,14 @@ class SignInView: UIView {
     addSubview(signInButton)
     addSubview(iconImageView)
     applyLayout()
+    signInButton.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
   }
 
   // MARK: - Private API
+
+  @objc func signInButtonTapped(sender: UIButton) {
+      didButtonTapped?(sender)
+  }
 
   func applyLayout() {
     view.snp.makeConstraints { make in
