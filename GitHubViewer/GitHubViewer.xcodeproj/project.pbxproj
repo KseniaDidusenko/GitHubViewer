@@ -10,6 +10,11 @@
 		CAA4542B9C7A0B8B62370380 /* Pods_GitHubViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765C59C863DCBC40AB11CC01 /* Pods_GitHubViewer.framework */; };
 		CE03382E24AD3C2800F73115 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03382D24AD3C2800F73115 /* SignInView.swift */; };
 		CE03383024AD414600F73115 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03382F24AD414600F73115 /* UIColor+Extensions.swift */; };
+		CE42DDD024B31E17005B3E25 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDCF24B31E17005B3E25 /* UserModel.swift */; };
+		CE42DDD424B31F9A005B3E25 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDD324B31F9A005B3E25 /* TokenModel.swift */; };
+		CE42DDD624B325A7005B3E25 /* Typealias+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDD524B325A7005B3E25 /* Typealias+Extension.swift */; };
+		CE84C16B24AE8FE50019F016 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE84C16A24AE8FE50019F016 /* NetworkService.swift */; };
+		CE84C16D24AF77280019F016 /* GitHubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE84C16C24AF77280019F016 /* GitHubService.swift */; };
 		CE8EBDE224AB7F570020B923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBDE124AB7F570020B923 /* AppDelegate.swift */; };
 		CE8EBDE424AB7F570020B923 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBDE324AB7F570020B923 /* SceneDelegate.swift */; };
 		CE8EBDE924AB7F570020B923 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8EBDE724AB7F570020B923 /* Main.storyboard */; };
@@ -25,6 +30,11 @@
 		765C59C863DCBC40AB11CC01 /* Pods_GitHubViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE03382D24AD3C2800F73115 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		CE03382F24AD414600F73115 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		CE42DDCF24B31E17005B3E25 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		CE42DDD324B31F9A005B3E25 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
+		CE42DDD524B325A7005B3E25 /* Typealias+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Typealias+Extension.swift"; sourceTree = "<group>"; };
+		CE84C16A24AE8FE50019F016 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		CE84C16C24AF77280019F016 /* GitHubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubService.swift; sourceTree = "<group>"; };
 		CE8EBDDE24AB7F570020B923 /* GitHubViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8EBDE124AB7F570020B923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE8EBDE324AB7F570020B923 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				CE03382F24AD414600F73115 /* UIColor+Extensions.swift */,
+				CE42DDD524B325A7005B3E25 /* Typealias+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -119,6 +130,8 @@
 		CE8EBDF624AB8ED60020B923 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CE84C16A24AE8FE50019F016 /* NetworkService.swift */,
+				CE84C16C24AF77280019F016 /* GitHubService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -160,6 +173,8 @@
 		CE8EBDFB24AB8F170020B923 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CE42DDCF24B31E17005B3E25 /* UserModel.swift */,
+				CE42DDD324B31F9A005B3E25 /* TokenModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -281,10 +296,15 @@
 			files = (
 				CE8EBDFF24ABBB2D0020B923 /* SignInViewController.swift in Sources */,
 				CE03383024AD414600F73115 /* UIColor+Extensions.swift in Sources */,
+				CE84C16D24AF77280019F016 /* GitHubService.swift in Sources */,
+				CE42DDD624B325A7005B3E25 /* Typealias+Extension.swift in Sources */,
+				CE42DDD424B31F9A005B3E25 /* TokenModel.swift in Sources */,
 				CE8EBDE224AB7F570020B923 /* AppDelegate.swift in Sources */,
 				CE8EBDE424AB7F570020B923 /* SceneDelegate.swift in Sources */,
 				CE8EBDFD24ABBAA30020B923 /* MainInfoViewController.swift in Sources */,
 				CE03382E24AD3C2800F73115 /* SignInView.swift in Sources */,
+				CE42DDD024B31E17005B3E25 /* UserModel.swift in Sources */,
+				CE84C16B24AE8FE50019F016 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
