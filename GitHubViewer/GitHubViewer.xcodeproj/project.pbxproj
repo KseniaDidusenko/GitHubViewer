@@ -10,17 +10,27 @@
 		CAA4542B9C7A0B8B62370380 /* Pods_GitHubViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 765C59C863DCBC40AB11CC01 /* Pods_GitHubViewer.framework */; };
 		CE03382E24AD3C2800F73115 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03382D24AD3C2800F73115 /* SignInView.swift */; };
 		CE03383024AD414600F73115 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03382F24AD414600F73115 /* UIColor+Extensions.swift */; };
+		CE35C26124B525DC00C72D9B /* MainInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE35C26024B525DC00C72D9B /* MainInfoViewController.swift */; };
 		CE42DDD024B31E17005B3E25 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDCF24B31E17005B3E25 /* UserModel.swift */; };
 		CE42DDD424B31F9A005B3E25 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDD324B31F9A005B3E25 /* TokenModel.swift */; };
 		CE42DDD624B325A7005B3E25 /* Typealias+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDD524B325A7005B3E25 /* Typealias+Extension.swift */; };
+		CE42DDD924B3902A005B3E25 /* PersistentDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDD824B3902A005B3E25 /* PersistentDataManager.swift */; };
+		CE42DDDD24B3A3DE005B3E25 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDDC24B3A3DE005B3E25 /* UserDefaults+Extensions.swift */; };
+		CE42DDDF24B3A40B005B3E25 /* DefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDDE24B3A40B005B3E25 /* DefaultsKey.swift */; };
+		CE42DDE324B3B0DB005B3E25 /* AppRunController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDE224B3B0DB005B3E25 /* AppRunController.swift */; };
+		CE42DDE524B3C07C005B3E25 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDE424B3C07C005B3E25 /* UIApplication+Extensions.swift */; };
+		CE42DDE724B3C362005B3E25 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDE624B3C362005B3E25 /* UIViewController+Extensions.swift */; };
+		CE42DDEA24B3C911005B3E25 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDE924B3C911005B3E25 /* Coordinator.swift */; };
+		CE42DDEC24B3C928005B3E25 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDEB24B3C928005B3E25 /* AppCoordinator.swift */; };
+		CE42DDEE24B3C9FC005B3E25 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDED24B3C9FC005B3E25 /* MainCoordinator.swift */; };
+		CE42DDF024B3CAF7005B3E25 /* SignInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDEF24B3CAF7005B3E25 /* SignInCoordinator.swift */; };
+		CE42DDF224B3D0FA005B3E25 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDF124B3D0FA005B3E25 /* UserInfoView.swift */; };
 		CE84C16B24AE8FE50019F016 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE84C16A24AE8FE50019F016 /* NetworkService.swift */; };
 		CE84C16D24AF77280019F016 /* GitHubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE84C16C24AF77280019F016 /* GitHubService.swift */; };
 		CE8EBDE224AB7F570020B923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBDE124AB7F570020B923 /* AppDelegate.swift */; };
 		CE8EBDE424AB7F570020B923 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBDE324AB7F570020B923 /* SceneDelegate.swift */; };
-		CE8EBDE924AB7F570020B923 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8EBDE724AB7F570020B923 /* Main.storyboard */; };
 		CE8EBDEB24AB7F5B0020B923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8EBDEA24AB7F5B0020B923 /* Assets.xcassets */; };
 		CE8EBDEE24AB7F5B0020B923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8EBDEC24AB7F5B0020B923 /* LaunchScreen.storyboard */; };
-		CE8EBDFD24ABBAA30020B923 /* MainInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBDFC24ABBAA30020B923 /* MainInfoViewController.swift */; };
 		CE8EBDFF24ABBB2D0020B923 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBDFE24ABBB2D0020B923 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,19 +40,29 @@
 		765C59C863DCBC40AB11CC01 /* Pods_GitHubViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE03382D24AD3C2800F73115 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		CE03382F24AD414600F73115 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		CE35C26024B525DC00C72D9B /* MainInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoViewController.swift; sourceTree = "<group>"; };
 		CE42DDCF24B31E17005B3E25 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CE42DDD324B31F9A005B3E25 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
 		CE42DDD524B325A7005B3E25 /* Typealias+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Typealias+Extension.swift"; sourceTree = "<group>"; };
+		CE42DDD824B3902A005B3E25 /* PersistentDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentDataManager.swift; sourceTree = "<group>"; };
+		CE42DDDC24B3A3DE005B3E25 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		CE42DDDE24B3A40B005B3E25 /* DefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKey.swift; sourceTree = "<group>"; };
+		CE42DDE224B3B0DB005B3E25 /* AppRunController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRunController.swift; sourceTree = "<group>"; };
+		CE42DDE424B3C07C005B3E25 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		CE42DDE624B3C362005B3E25 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		CE42DDE924B3C911005B3E25 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CE42DDEB24B3C928005B3E25 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		CE42DDED24B3C9FC005B3E25 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		CE42DDEF24B3CAF7005B3E25 /* SignInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCoordinator.swift; sourceTree = "<group>"; };
+		CE42DDF124B3D0FA005B3E25 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		CE84C16A24AE8FE50019F016 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		CE84C16C24AF77280019F016 /* GitHubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubService.swift; sourceTree = "<group>"; };
 		CE8EBDDE24AB7F570020B923 /* GitHubViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8EBDE124AB7F570020B923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE8EBDE324AB7F570020B923 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE8EBDE824AB7F570020B923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE8EBDEA24AB7F5B0020B923 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE8EBDED24AB7F5B0020B923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE8EBDEF24AB7F5B0020B923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE8EBDFC24ABBAA30020B923 /* MainInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoViewController.swift; sourceTree = "<group>"; };
 		CE8EBDFE24ABBB2D0020B923 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,8 +99,28 @@
 			isa = PBXGroup;
 			children = (
 				CE03382D24AD3C2800F73115 /* SignInView.swift */,
+				CE42DDF124B3D0FA005B3E25 /* UserInfoView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CE42DDD724B39017005B3E25 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CE42DDD824B3902A005B3E25 /* PersistentDataManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		CE42DDE824B3C676005B3E25 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				CE42DDE924B3C911005B3E25 /* Coordinator.swift */,
+				CE42DDEB24B3C928005B3E25 /* AppCoordinator.swift */,
+				CE42DDED24B3C9FC005B3E25 /* MainCoordinator.swift */,
+				CE42DDEF24B3CAF7005B3E25 /* SignInCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		CE8EBDD524AB7F560020B923 = {
@@ -104,9 +144,12 @@
 		CE8EBDE024AB7F570020B923 /* GitHubViewer */ = {
 			isa = PBXGroup;
 			children = (
+				CE42DDE824B3C676005B3E25 /* Coordinator */,
+				CE42DDD724B39017005B3E25 /* Managers */,
 				CE03382C24AD3C0F00F73115 /* Views */,
 				CE8EBDE124AB7F570020B923 /* AppDelegate.swift */,
 				CE8EBDE324AB7F570020B923 /* SceneDelegate.swift */,
+				CE42DDE224B3B0DB005B3E25 /* AppRunController.swift */,
 				CE8EBDF524AB8EC70020B923 /* Extensions */,
 				CE8EBDF624AB8ED60020B923 /* Services */,
 				CE8EBDFB24AB8F170020B923 /* Models */,
@@ -123,6 +166,10 @@
 			children = (
 				CE03382F24AD414600F73115 /* UIColor+Extensions.swift */,
 				CE42DDD524B325A7005B3E25 /* Typealias+Extension.swift */,
+				CE42DDDC24B3A3DE005B3E25 /* UserDefaults+Extensions.swift */,
+				CE42DDDE24B3A40B005B3E25 /* DefaultsKey.swift */,
+				CE42DDE424B3C07C005B3E25 /* UIApplication+Extensions.swift */,
+				CE42DDE624B3C362005B3E25 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -156,7 +203,6 @@
 			isa = PBXGroup;
 			children = (
 				CE8EBDEC24AB7F5B0020B923 /* LaunchScreen.storyboard */,
-				CE8EBDE724AB7F570020B923 /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -164,8 +210,8 @@
 		CE8EBDFA24AB8F0C0020B923 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CE8EBDFC24ABBAA30020B923 /* MainInfoViewController.swift */,
 				CE8EBDFE24ABBB2D0020B923 /* SignInViewController.swift */,
+				CE35C26024B525DC00C72D9B /* MainInfoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -241,7 +287,6 @@
 			files = (
 				CE8EBDEE24AB7F5B0020B923 /* LaunchScreen.storyboard in Resources */,
 				CE8EBDEB24AB7F5B0020B923 /* Assets.xcassets in Resources */,
-				CE8EBDE924AB7F570020B923 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,14 +339,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE42DDD924B3902A005B3E25 /* PersistentDataManager.swift in Sources */,
 				CE8EBDFF24ABBB2D0020B923 /* SignInViewController.swift in Sources */,
 				CE03383024AD414600F73115 /* UIColor+Extensions.swift in Sources */,
 				CE84C16D24AF77280019F016 /* GitHubService.swift in Sources */,
+				CE42DDF024B3CAF7005B3E25 /* SignInCoordinator.swift in Sources */,
+				CE42DDDD24B3A3DE005B3E25 /* UserDefaults+Extensions.swift in Sources */,
+				CE42DDE724B3C362005B3E25 /* UIViewController+Extensions.swift in Sources */,
+				CE42DDE324B3B0DB005B3E25 /* AppRunController.swift in Sources */,
+				CE35C26124B525DC00C72D9B /* MainInfoViewController.swift in Sources */,
+				CE42DDE524B3C07C005B3E25 /* UIApplication+Extensions.swift in Sources */,
+				CE42DDF224B3D0FA005B3E25 /* UserInfoView.swift in Sources */,
+				CE42DDEA24B3C911005B3E25 /* Coordinator.swift in Sources */,
 				CE42DDD624B325A7005B3E25 /* Typealias+Extension.swift in Sources */,
 				CE42DDD424B31F9A005B3E25 /* TokenModel.swift in Sources */,
 				CE8EBDE224AB7F570020B923 /* AppDelegate.swift in Sources */,
 				CE8EBDE424AB7F570020B923 /* SceneDelegate.swift in Sources */,
-				CE8EBDFD24ABBAA30020B923 /* MainInfoViewController.swift in Sources */,
+				CE42DDEE24B3C9FC005B3E25 /* MainCoordinator.swift in Sources */,
+				CE42DDDF24B3A40B005B3E25 /* DefaultsKey.swift in Sources */,
+				CE42DDEC24B3C928005B3E25 /* AppCoordinator.swift in Sources */,
 				CE03382E24AD3C2800F73115 /* SignInView.swift in Sources */,
 				CE42DDD024B31E17005B3E25 /* UserModel.swift in Sources */,
 				CE84C16B24AE8FE50019F016 /* NetworkService.swift in Sources */,
@@ -311,14 +367,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE8EBDE724AB7F570020B923 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE8EBDE824AB7F570020B923 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CE8EBDEC24AB7F5B0020B923 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

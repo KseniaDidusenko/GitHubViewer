@@ -14,6 +14,8 @@ class SignInViewController: UIViewController {
 
   // MARK: - Public properties
 
+  weak var coordinatorSignIn: SignInCoordinator?
+
   // MARK: - Outlets
 
   // MARK: - Private properties
@@ -27,6 +29,7 @@ class SignInViewController: UIViewController {
   override func loadView() {
       view = signInView
   }
+
   override func viewDidLoad() {
     super.viewDidLoad()
 //    view.backgroundColor = .purple
@@ -115,14 +118,9 @@ class SignInViewController: UIViewController {
               switch result {
               case .success(let token):
                 print(token)
-                GitHubService().getUserProfile(accessToken: token.accessToken) { result in
-                        switch result {
-                  case .success(let user):
-                    print(user)
-                  case .failure(let error):
-                    print(error.localizedDescription)
-                  }
-                }
+                PersistentDataManager.shared().saveToken(token.accessToken)
+                PersistentDataManager.shared().isFirstStart = false
+                self.coordinatorSignIn?.showMain()
               case .failure(let error):
                 print(error.localizedDescription)
               }
