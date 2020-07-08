@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import AlamofireImage
 
 class UserInfoView: UIView {
 
@@ -52,7 +53,7 @@ class UserInfoView: UIView {
       return label
     }()
 
-  private let profileImageView : UIImageView = {
+  private var profileImageView : UIImageView = {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFill
     imageView.layer.borderWidth = 1.0
@@ -122,6 +123,9 @@ class UserInfoView: UIView {
     profileNameLabel.text = userData.name
     profileLoginLabel.text = userData.login
     bioLabel.text = userData.bio
+    if let imageUrl = URL(string: userData.avatarUrl ?? "") {
+        profileImageView.af.setImage(withURL: imageUrl, cacheKey: "CacheUserImageKey\(userData.id)")
+    }
   }
 }
 

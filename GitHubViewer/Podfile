@@ -8,5 +8,5 @@ target 'GitHubViewer' do
   pod 'SwiftLint', '0.39.1'
   pod 'SnapKit', '5.0.1'
   pod 'KeychainAccess', '4.2.0'
-  pod 'Kingfisher', '5.14.1'
+  pod 'AlamofireImage'
 end
