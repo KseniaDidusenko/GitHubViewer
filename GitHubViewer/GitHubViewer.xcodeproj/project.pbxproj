@@ -17,7 +17,6 @@
 		CE42DDD924B3902A005B3E25 /* PersistentDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDD824B3902A005B3E25 /* PersistentDataManager.swift */; };
 		CE42DDDD24B3A3DE005B3E25 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDDC24B3A3DE005B3E25 /* UserDefaults+Extensions.swift */; };
 		CE42DDDF24B3A40B005B3E25 /* DefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDDE24B3A40B005B3E25 /* DefaultsKey.swift */; };
-		CE42DDE324B3B0DB005B3E25 /* AppRunController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDE224B3B0DB005B3E25 /* AppRunController.swift */; };
 		CE42DDE524B3C07C005B3E25 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDE424B3C07C005B3E25 /* UIApplication+Extensions.swift */; };
 		CE42DDE724B3C362005B3E25 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDE624B3C362005B3E25 /* UIViewController+Extensions.swift */; };
 		CE42DDEA24B3C911005B3E25 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE42DDE924B3C911005B3E25 /* Coordinator.swift */; };
@@ -32,6 +31,8 @@
 		CE8EBDEB24AB7F5B0020B923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8EBDEA24AB7F5B0020B923 /* Assets.xcassets */; };
 		CE8EBDEE24AB7F5B0020B923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8EBDEC24AB7F5B0020B923 /* LaunchScreen.storyboard */; };
 		CE8EBDFF24ABBB2D0020B923 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBDFE24ABBB2D0020B923 /* SignInViewController.swift */; };
+		CECEFAE424B6844F00BCDE99 /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEFAE324B6844F00BCDE99 /* RepositoryCell.swift */; };
+		CECEFAE624B691D900BCDE99 /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEFAE524B691D900BCDE99 /* RepositoryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +48,6 @@
 		CE42DDD824B3902A005B3E25 /* PersistentDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentDataManager.swift; sourceTree = "<group>"; };
 		CE42DDDC24B3A3DE005B3E25 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		CE42DDDE24B3A40B005B3E25 /* DefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKey.swift; sourceTree = "<group>"; };
-		CE42DDE224B3B0DB005B3E25 /* AppRunController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRunController.swift; sourceTree = "<group>"; };
 		CE42DDE424B3C07C005B3E25 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		CE42DDE624B3C362005B3E25 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		CE42DDE924B3C911005B3E25 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -64,6 +64,8 @@
 		CE8EBDED24AB7F5B0020B923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE8EBDEF24AB7F5B0020B923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE8EBDFE24ABBB2D0020B923 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		CECEFAE324B6844F00BCDE99 /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		CECEFAE524B691D900BCDE99 /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +151,6 @@
 				CE03382C24AD3C0F00F73115 /* Views */,
 				CE8EBDE124AB7F570020B923 /* AppDelegate.swift */,
 				CE8EBDE324AB7F570020B923 /* SceneDelegate.swift */,
-				CE42DDE224B3B0DB005B3E25 /* AppRunController.swift */,
 				CE8EBDF524AB8EC70020B923 /* Extensions */,
 				CE8EBDF624AB8ED60020B923 /* Services */,
 				CE8EBDFB24AB8F170020B923 /* Models */,
@@ -210,6 +211,7 @@
 		CE8EBDFA24AB8F0C0020B923 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CECEFAE224B6842300BCDE99 /* Cell */,
 				CE8EBDFE24ABBB2D0020B923 /* SignInViewController.swift */,
 				CE35C26024B525DC00C72D9B /* MainInfoViewController.swift */,
 			);
@@ -221,8 +223,17 @@
 			children = (
 				CE42DDCF24B31E17005B3E25 /* UserModel.swift */,
 				CE42DDD324B31F9A005B3E25 /* TokenModel.swift */,
+				CECEFAE524B691D900BCDE99 /* RepositoryModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CECEFAE224B6842300BCDE99 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CECEFAE324B6844F00BCDE99 /* RepositoryCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,8 +357,8 @@
 				CE42DDF024B3CAF7005B3E25 /* SignInCoordinator.swift in Sources */,
 				CE42DDDD24B3A3DE005B3E25 /* UserDefaults+Extensions.swift in Sources */,
 				CE42DDE724B3C362005B3E25 /* UIViewController+Extensions.swift in Sources */,
-				CE42DDE324B3B0DB005B3E25 /* AppRunController.swift in Sources */,
 				CE35C26124B525DC00C72D9B /* MainInfoViewController.swift in Sources */,
+				CECEFAE624B691D900BCDE99 /* RepositoryModel.swift in Sources */,
 				CE42DDE524B3C07C005B3E25 /* UIApplication+Extensions.swift in Sources */,
 				CE42DDF224B3D0FA005B3E25 /* UserInfoView.swift in Sources */,
 				CE42DDEA24B3C911005B3E25 /* Coordinator.swift in Sources */,
@@ -355,6 +366,7 @@
 				CE42DDD424B31F9A005B3E25 /* TokenModel.swift in Sources */,
 				CE8EBDE224AB7F570020B923 /* AppDelegate.swift in Sources */,
 				CE8EBDE424AB7F570020B923 /* SceneDelegate.swift in Sources */,
+				CECEFAE424B6844F00BCDE99 /* RepositoryCell.swift in Sources */,
 				CE42DDEE24B3C9FC005B3E25 /* MainCoordinator.swift in Sources */,
 				CE42DDDF24B3A40B005B3E25 /* DefaultsKey.swift in Sources */,
 				CE42DDEC24B3C928005B3E25 /* AppCoordinator.swift in Sources */,

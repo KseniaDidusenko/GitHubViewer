@@ -17,14 +17,28 @@ class GitHubService {
     case clientId = "9fb80b7c8218527e714f"
     case clientSecret = "87b2a893a5ffef45a4aa4692fd210f45d5bb8e65"
     case redirectUrl = "https://github.com"
-    case scope = "read:user,user:email"
+    case scope = "read:user,user:email,repo,delete_repo"
     case tokenUrl = "/login/oauth/access_token/"
-    case tokenURLFull = "/user"
+    case userUrl = "/user"
+    case repositoryUrl = "/user/repos"
+  }
+
+  public enum RepositoriesSort: String {
+      case created
+      case updated
+      case pushed
+      case full_name
+  }
+
+  public enum RepositoriesDirection: String {
+      case asc
+      case desc
   }
 
   // MARK: - Private properties
 
   private let networkService = NetworkService.shared()
+  private let accessToken = PersistentDataManager.shared().token
 
   // MARK: - Public API
 
@@ -83,10 +97,34 @@ class GitHubService {
     let headers: HTTPHeaders = [
       "Authorization": "Bearer \(accessToken)"
     ]
-    networkService.request(apiMethod: GithubConstants.tokenURLFull.rawValue,
+    networkService.request(apiMethod: GithubConstants.userUrl.rawValue,
                            parameters: nil,
                            headers: headers,
                            responseClass: UserModel.self) { result in
+                            switch result {
+                            case .success(let data):
+                              completion(.success(data))
+                            case .failure(let error):
+                              completion(.failure(error))
+                            }
+    }
+  }
+
+  func getRepositories(sort: RepositoriesSort? = nil, direction: RepositoriesDirection? = nil, completion: @escaping RepositoryResultClosure) {
+    var parameters = [String : String]()
+    if let sort = sort {
+        parameters["sort"] = sort.rawValue
+    }
+    if let direction = direction {
+        parameters["direction"] = direction.rawValue
+    }
+    let headers: HTTPHeaders = [
+      "Authorization": "Bearer \((accessToken) ?? "")"
+    ]
+    networkService.request(apiMethod: GithubConstants.repositoryUrl.rawValue,
+                           parameters: parameters,
+                           headers: headers,
+                           responseClass: [RepositoryModel].self) { result in
                             switch result {
                             case .success(let data):
                               completion(.success(data))

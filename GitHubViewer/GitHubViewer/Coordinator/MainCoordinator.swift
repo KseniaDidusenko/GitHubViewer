@@ -43,7 +43,6 @@ class MainCoordinator: Coordinator {
   private func showMain(on window: UIWindow? = nil) {
     let mainViewController = MainInfoViewController()
     mainViewController.coordinatorMain = self
-    //      mainViewController.view.backgroundColor = .lightGray
     navigationController.setViewControllers([mainViewController], animated: false)
     navigationController.isNavigationBarHidden = false
     navigationController.navigationBar.isTranslucent = false
@@ -51,7 +50,7 @@ class MainCoordinator: Coordinator {
     navigationController.navigationBar.barTintColor = UIColor(hexString: "#333333")
     let textAttributes = [
       NSAttributedString.Key.foregroundColor: UIColor.white,
-      .font: UIFont(name: "HelveticaNeue", size: 20) ?? UIFont.systemFont(ofSize: 20)
+      .font: UIFont(name: "HelveticaNeue-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)
     ]
     navigationController.navigationBar.titleTextAttributes = textAttributes
     guard let window = window else { return }

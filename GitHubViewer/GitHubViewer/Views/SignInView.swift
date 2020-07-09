@@ -55,7 +55,7 @@ class SignInView: UIView {
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-//    createSubviews()
+    createSubviews()
   }
 
   func createSubviews() {

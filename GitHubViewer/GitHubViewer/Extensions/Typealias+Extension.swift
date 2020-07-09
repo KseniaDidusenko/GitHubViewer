@@ -10,4 +10,5 @@ import Foundation
 
 typealias TokenResultClosure = (Result<TokenModel>) -> Void
 typealias UserResultClosure = (Result<UserModel>) -> Void
+typealias RepositoryResultClosure = (Result<[RepositoryModel]>) -> Void
 typealias EmptyClosure = () -> Void
