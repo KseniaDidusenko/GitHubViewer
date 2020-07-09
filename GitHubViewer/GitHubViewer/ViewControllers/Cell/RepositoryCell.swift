@@ -20,6 +20,8 @@ class RepositoryCell: UITableViewCell {
     label.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
     label.textAlignment = .left
     label.numberOfLines = 0
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
     return label
   }()
 
@@ -57,10 +59,44 @@ class RepositoryCell: UITableViewCell {
   func setupCell(_ repository: RepositoryModel) {
     repositoryNameLabel.text = repository.name
     languageLabel.text = repository.language
-    lastUpdateLabel.text = repository.lastUpdate
+    lastUpdateLabel.text = setDateOfLastUpdate(repository.lastUpdate ?? "")
   }
 
   // MARK: - Private API
+
+  private func setDateOfLastUpdate(_ lastUpdate: String) -> String {
+    var updatedAt = String()
+    let dateFormatter = ISO8601DateFormatter()
+    dateFormatter.timeZone = .autoupdatingCurrent
+    guard let date = dateFormatter.date(from: lastUpdate) else { return "" }
+    let formatter = DateFormatter()
+    formatter.dateFormat = "d MMM yyyy"
+    let componentsFormatter = DateComponentsFormatter()
+    let dateComponents = Calendar.current.dateComponents([.day, .hour, .minute, .second], from: date, to: Date())
+    componentsFormatter.unitsStyle = .full
+
+    if dateComponents.day ?? 0 > 0 {
+      componentsFormatter.allowedUnits = .day
+    } else if dateComponents.hour ?? 0 > 0 {
+      componentsFormatter.allowedUnits = .hour
+    } else if dateComponents.minute ?? 0 > 0 {
+      componentsFormatter.allowedUnits = .minute
+    } else {
+      componentsFormatter.allowedUnits = .second
+    }
+    if dateComponents.day ?? 0 <= 9 {
+      updatedAt = componentsFormatter.string(from: date, to: Date()) ?? ""
+    } else if dateComponents.day ?? 0 == 0 {
+      updatedAt = componentsFormatter.string(from: date, to: Date()) ?? ""
+    } else if dateComponents.day ?? 0 == 0 && dateComponents.hour ?? 0 == 0 {
+      updatedAt = componentsFormatter.string(from: date, to: Date()) ?? ""
+    } else if dateComponents.day ?? 0 == 0 && dateComponents.hour ?? 0 == 0 && dateComponents.minute ?? 0 == 0 {
+      updatedAt = componentsFormatter.string(from: date, to: Date()) ?? ""
+    } else {
+      updatedAt = formatter.string(from: date)
+    }
+    return updatedAt
+  }
 
   private func createSubviews() {
     addSubview(repositoryNameLabel)
