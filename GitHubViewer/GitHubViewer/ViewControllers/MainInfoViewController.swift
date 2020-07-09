@@ -77,7 +77,7 @@ class MainInfoViewController: UIViewController {
   }
 
   private func getRepositories() {
-    GitHubService().getRepositories(sort: .updated, direction: .desc) { [weak self] result in
+    GitHubService().getRepositories(sort: .pushed, direction: .desc) { [weak self] result in
       guard let self = self else { return }
       switch result {
       case .success(let data):
