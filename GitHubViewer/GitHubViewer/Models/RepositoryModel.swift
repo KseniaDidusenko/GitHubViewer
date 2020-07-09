@@ -16,7 +16,7 @@ struct RepositoryModel: Codable {
 
   enum CodingKeys: String, CodingKey {
     case name
-    case lastUpdate = "updated_at"
+    case lastUpdate = "pushed_at"
     case language
   }
 }
