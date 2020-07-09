@@ -31,6 +31,8 @@ class UserInfoView: UIView {
     label.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
     label.textAlignment = .left
     label.numberOfLines = 0
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
     return label
   }()
 
@@ -40,6 +42,8 @@ class UserInfoView: UIView {
     label.font = UIFont(name: "HelveticaNeue", size: 18)
     label.textAlignment = .left
     label.numberOfLines = 0
+    label.adjustsFontSizeToFitWidth = true
+    label.minimumScaleFactor = 0.5
     return label
   }()
 
@@ -50,6 +54,8 @@ class UserInfoView: UIView {
       label.font = UIFont(name: "HelveticaNeue", size: 16)
       label.textAlignment = .left
       label.numberOfLines = 0
+      label.adjustsFontSizeToFitWidth = true
+      label.minimumScaleFactor = 0.5
       return label
     }()
 
@@ -60,6 +66,8 @@ class UserInfoView: UIView {
       label.font = UIFont(name: "HelveticaNeue", size: 14)
       label.textAlignment = .left
       label.numberOfLines = 0
+      label.adjustsFontSizeToFitWidth = true
+      label.minimumScaleFactor = 0.5
       return label
     }()
 
