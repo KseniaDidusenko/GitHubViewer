@@ -6,8 +6,8 @@
 //  Copyright © 2020 Ksenia. All rights reserved.
 //
 
-import UIKit
 import SnapKit
+import UIKit
 
 class SignInView: UIView {
 
@@ -19,13 +19,13 @@ class SignInView: UIView {
 
   // MARK: - Private properties
 
-  private let view : UIView = {
+  private let view: UIView = {
     let view = UIView()
     view.backgroundColor = UIColor(hexString: "24292e")
     return view
   }()
 
-  private let signInButton : UIButton = {
+  private let signInButton: UIButton = {
     let button = UIButton(type: .custom)
     button.setTitle("Sign In GitHub", for: .normal)
     button.titleLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: 14)
@@ -37,7 +37,7 @@ class SignInView: UIView {
     return button
   }()
 
-  private let iconImageView : UIImageView = {
+  private let iconImageView: UIImageView = {
     let imageView = UIImageView()
     imageView.image = UIImage(named: "githubIcon")
     imageView.contentMode = .scaleAspectFill

@@ -6,8 +6,8 @@
 //  Copyright © 2020 Ksenia. All rights reserved.
 //
 
-import UIKit
 import SnapKit
+import UIKit
 
 class MainInfoViewController: UIViewController {
 
@@ -16,7 +16,6 @@ class MainInfoViewController: UIViewController {
   weak var coordinatorMain: MainCoordinator?
 
   // MARK: - Outlets
-
 
   let cellIdentifier = "cellIdentifier"
   var userInfoView = UIView()
@@ -35,6 +34,7 @@ class MainInfoViewController: UIViewController {
     view.backgroundColor = .white
     getData()
     getRepositories()
+    setupNavigationBar()
   }
 
   // MARK: - Navigation
@@ -76,6 +76,24 @@ class MainInfoViewController: UIViewController {
     tableView.register(RepositoryCell.self, forCellReuseIdentifier: cellIdentifier)
   }
 
+  private func setupNavigationBar() {
+    let repositoryNewButton = UIButton(type: .custom)
+    repositoryNewButton.setImage(UIImage(named: "repository"), for: .normal)
+    repositoryNewButton.frame = CGRect(x: 0, y: 0, width: 60, height: 30)
+    repositoryNewButton.addTarget(self, action: #selector(createNewRepository), for: .touchUpInside)
+    repositoryNewButton.setTitle("New", for: .normal)
+    repositoryNewButton.setTitleColor(.white, for: .normal)
+    repositoryNewButton.backgroundColor = UIColor(hexString: "28a745")
+    repositoryNewButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: 16) ?? UIFont.systemFont(ofSize: 16)
+    repositoryNewButton.clipsToBounds = true
+    repositoryNewButton.layer.cornerRadius = 5
+    let item = UIBarButtonItem(customView: repositoryNewButton)
+    self.navigationItem.setRightBarButtonItems([item], animated: true)
+  }
+
+  @objc func createNewRepository() {
+  }
+
   private func getRepositories() {
     GitHubService().getRepositories(sort: .pushed, direction: .desc) { [weak self] result in
       guard let self = self else { return }
@@ -98,10 +116,15 @@ extension MainInfoViewController: UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RepositoryCell else { return UITableViewCell() }
-    //    cell.updateTableClosure = { tableView.reloadData() }
     cell.setupCell(repositiesData[indexPath.row])
     return cell
   }
 }
 
-extension MainInfoViewController: UITableViewDelegate { }
+extension MainInfoViewController: UITableViewDelegate {
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    coordinatorMain?.showRepositoryDetais(repository: repositiesData[indexPath.row])
+  }
+}

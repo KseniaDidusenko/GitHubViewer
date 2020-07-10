@@ -91,7 +91,7 @@ class NetworkService {
             completion(failureResponse)
           }
         }
-    }
+      }
     .cURLDescription(calling: { curl in
       print(curl)
     })
@@ -135,7 +135,7 @@ class NetworkService {
             completion(failureResponse)
           }
         }
-    }
+      }
     .cURLDescription(calling: { curl in
       print(curl)
     })

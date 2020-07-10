@@ -6,9 +6,9 @@
 //  Copyright © 2020 Ksenia. All rights reserved.
 //
 
-import UIKit
-import SnapKit
 import AlamofireImage
+import SnapKit
+import UIKit
 
 class UserInfoView: UIView {
 
@@ -18,36 +18,36 @@ class UserInfoView: UIView {
 
   // MARK: - Private properties
 
-  private let separatorView : UIView = {
+  private let separatorView: UIView = {
     let view = UIView(frame: .zero)
-    view.backgroundColor = .gray
+    view.backgroundColor = .repositoryLightGray
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
 
-  private let profileNameLabel : UILabel = {
+  private let profileNameLabel: UILabel = {
     let label = UILabel()
     label.textColor = .black
     label.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
     label.textAlignment = .left
-    label.numberOfLines = 0
+    label.numberOfLines = 1
     label.adjustsFontSizeToFitWidth = true
     label.minimumScaleFactor = 0.5
     return label
   }()
 
-  private let profileLoginLabel : UILabel = {
+  private let profileLoginLabel: UILabel = {
     let label = UILabel()
-    label.textColor = .gray
+    label.textColor = .repositoryLightGray
     label.font = UIFont(name: "HelveticaNeue", size: 18)
     label.textAlignment = .left
-    label.numberOfLines = 0
+    label.numberOfLines = 1
     label.adjustsFontSizeToFitWidth = true
     label.minimumScaleFactor = 0.5
     return label
   }()
 
-    private let bioLabel : UILabel = {
+    private let bioLabel: UILabel = {
       let label = UILabel()
       label.textColor = .black
   //    label.font = UIFont(name: "HelveticaNeue-Light", size: 12)
@@ -59,19 +59,19 @@ class UserInfoView: UIView {
       return label
     }()
 
-    private let emailLabel : UILabel = {
+    private let emailLabel: UILabel = {
       let label = UILabel()
       label.textColor = .black
   //    label.font = UIFont(name: "HelveticaNeue-Light", size: 12)
       label.font = UIFont(name: "HelveticaNeue", size: 14)
       label.textAlignment = .left
-      label.numberOfLines = 0
+      label.numberOfLines = 1
       label.adjustsFontSizeToFitWidth = true
       label.minimumScaleFactor = 0.5
       return label
     }()
 
-  private var profileImageView : UIImageView = {
+  private var profileImageView: UIImageView = {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFill
     imageView.layer.borderWidth = 1.0
@@ -114,10 +114,6 @@ class UserInfoView: UIView {
 
   private func createSubviews(with userData: UserModel) {
     addSubview(profileImageView)
-    addSubview(profileNameLabel)
-    addSubview(profileLoginLabel)
-    addSubview(bioLabel)
-    addSubview(emailLabel)
     addSubview(stackview)
     addSubview(separatorView)
     stackview.addArrangedSubview(profileNameLabel)
@@ -148,7 +144,7 @@ class UserInfoView: UIView {
 
   private func customizeEmailLabel(with email: String) {
     let imageAttachment = NSTextAttachment()
-    imageAttachment.image = UIImage(named:"mail")
+    imageAttachment.image = UIImage(named: "mail")
     let imageOffsetY: CGFloat = -4.0
     imageAttachment.bounds = CGRect(x: 0, y: imageOffsetY, width: imageAttachment.image?.size.width ?? 0, height: imageAttachment.image?.size.height ?? 0)
     let attachmentString = NSAttributedString(attachment: imageAttachment)
@@ -170,4 +166,3 @@ class UserInfoView: UIView {
     }
   }
 }
-

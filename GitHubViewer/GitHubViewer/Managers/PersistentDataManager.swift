@@ -47,7 +47,7 @@ class PersistentDataManager {
   func saveToken(_ token: String) {
     keychain[PersistentDataManager.tokenKey] = token
   }
-  
+
   @discardableResult
   func clearToken() -> Bool {
     return (try? self.keychain.remove(PersistentDataManager.tokenKey)) != nil

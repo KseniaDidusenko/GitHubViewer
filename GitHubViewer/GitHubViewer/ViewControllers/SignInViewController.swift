@@ -6,9 +6,9 @@
 //  Copyright © 2020 Ksenia. All rights reserved.
 //
 
+import SnapKit
 import UIKit
 import WebKit
-import SnapKit
 
 class SignInViewController: UIViewController {
 
@@ -52,17 +52,6 @@ class SignInViewController: UIViewController {
   }
 
   private func createWebController() {
-//    let uuid = UUID().uuidString
-//    let authURLFull = "https://github.com/login/oauth/authorize?client_id=" + GitHubService.GithubConstants.clientId.rawValue + "&scope=" + GitHubService.GithubConstants.scope.rawValue + "&redirect_uri=" + GitHubService.GithubConstants.redirectUrl.rawValue + "&state=" + uuid
-//
-//    let urlRequest = URLRequest(url: URL(string: authURLFull)!)
-//    if let url = URL(string: authURLFull) {
-//        let vc = SFSafariViewController(url: url, entersReaderIfAvailable: true)
-//        vc.delegate = self
-//
-//        present(vc, animated: true)
-//    }
-
     let githubVC = UIViewController()
     let uuid = UUID().uuidString
     let webView = WKWebView()
@@ -72,12 +61,13 @@ class SignInViewController: UIViewController {
       make.edges.equalToSuperview()
     }
 
-    let authURLFull = "https://github.com/login/oauth/authorize?client_id=" + GitHubService.GithubConstants.clientId.rawValue + "&scope=" + GitHubService.GithubConstants.scope.rawValue + "&redirect_uri=" + GitHubService.GithubConstants.redirectUrl.rawValue + "&state=" + uuid
-    
-    let urlRequest = URLRequest(url: URL(string: authURLFull)!)
+    let authURLFull = "https://github.com/login/oauth/authorize?client_id=" +
+      GitHubService.GithubConstants.clientId.rawValue + "&scope=" +
+      GitHubService.GithubConstants.scope.rawValue + "&redirect_uri=" +
+      GitHubService.GithubConstants.redirectUrl.rawValue + "&state=" + uuid
+    guard let url = URL(string: authURLFull) else { return }
+    let urlRequest = URLRequest(url: url)
     webView.load(urlRequest)
-
-    // Create Navigation Controller
     let navController = UINavigationController(rootViewController: githubVC)
     let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.cancelAction))
     githubVC.navigationItem.leftBarButtonItem = cancelButton
@@ -104,20 +94,16 @@ class SignInViewController: UIViewController {
   }
 
   func requestForCallbackURL(request: URLRequest) {
-    let requestURLString = (request.url?.absoluteString)! as String
-    print(requestURLString)
+    let requestURLString = (request.url?.absoluteString ?? "") as String
     if requestURLString.hasPrefix(GitHubService.GithubConstants.redirectUrl.rawValue) {
       if requestURLString.contains("code=") {
         if let range = requestURLString.range(of: "=") {
           let githubCode = requestURLString[range.upperBound...]
           if let range = githubCode.range(of: "&state=") {
             let githubCodeFinal = githubCode[..<range.lowerBound]
-//            githubRequestForAccessToken(authCode: String(githubCodeFinal))
-            print(String(githubCodeFinal))
             GitHubService().getAccessToken(authCode: String(githubCodeFinal)) { result in
               switch result {
               case .success(let token):
-                print(token)
                 PersistentDataManager.shared().saveToken(token.accessToken)
                 PersistentDataManager.shared().isFirstStart = false
                 self.coordinatorSignIn?.showMain()
@@ -125,8 +111,6 @@ class SignInViewController: UIViewController {
                 print(error.localizedDescription)
               }
             }
-
-            // Close GitHub Auth ViewController after getting Authorization Code
             self.dismiss(animated: true, completion: nil)
           }
         }
@@ -136,9 +120,7 @@ class SignInViewController: UIViewController {
 }
 
 extension SignInViewController: WKNavigationDelegate {
-//  func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-//      dismiss(animated: true)
-//  }
+
   func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
     requestForCallbackURL(request: navigationAction.request)
       decisionHandler(.allow)

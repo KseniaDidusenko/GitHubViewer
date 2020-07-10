@@ -10,49 +10,49 @@ import UIKit
 
 class SignInCoordinator: Coordinator {
 
-    // MARK: - Public properties
+  // MARK: - Public properties
 
-    var navigationController: UINavigationController
-    var childCoordinators: [Coordinator] = []
-    weak var parentCoordinator: Coordinator?
+  var navigationController: UINavigationController
+  var childCoordinators: [Coordinator] = []
+  weak var parentCoordinator: Coordinator?
 
-    // MARK: - Private properties
+  // MARK: - Private properties
 
-    // MARK: - Initializer
+  // MARK: - Initializer
 
-    init(navController: UINavigationController) {
-        self.navigationController = navController
+  init(navController: UINavigationController) {
+    self.navigationController = navController
+  }
+
+  // MARK: - Public API
+
+  func start() {
+    guard let window = (parentCoordinator as? AppCoordinator)?.window else {
+      signIn()
+      return
     }
+    signIn(on: window)
+  }
 
-    // MARK: - Public API
+  func showMain() {
+    (parentCoordinator as? AppCoordinator)?.startMain()
+    didFinishSignUp()
+  }
 
-    func start() {
-        guard let window = (parentCoordinator as? AppCoordinator)?.window else {
-            signIn()
-            return
-        }
-        signIn(on: window)
-    }
+  // MARK: - Private API
 
-    func showMain() {
-        (parentCoordinator as? AppCoordinator)?.startMain()
-        didFinishSignUp()
-    }
+  private func didFinishSignUp() {
+    parentCoordinator?.childDidFinish(self)
+  }
 
-    // MARK: - Private API
-
-    private func didFinishSignUp() {
-        parentCoordinator?.childDidFinish(self)
-    }
-
-    private func signIn(on window: UIWindow? = nil) {
-        let signInViewController = SignInViewController()
-        signInViewController.coordinatorSignIn = self
-        navigationController.setViewControllers([signInViewController], animated: false)
-        navigationController.isNavigationBarHidden = true
-        navigationController.navigationBar.isTranslucent = false
-        navigationController.navigationBar.topItem?.title = ""
-        guard let window = window else { return }
-        UIApplication.switch(on: window, to: navigationController, animated: true)
-    }
+  private func signIn(on window: UIWindow? = nil) {
+    let signInViewController = SignInViewController()
+    signInViewController.coordinatorSignIn = self
+    navigationController.setViewControllers([signInViewController], animated: false)
+    navigationController.isNavigationBarHidden = true
+    navigationController.navigationBar.isTranslucent = false
+    navigationController.navigationBar.topItem?.title = ""
+    guard let window = window else { return }
+    UIApplication.switch(on: window, to: navigationController, animated: true)
+  }
 }

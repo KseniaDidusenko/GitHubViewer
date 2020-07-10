@@ -14,32 +14,32 @@ class RepositoryCell: UITableViewCell {
 
   // MARK: - Private properties
 
-  private let repositoryNameLabel : UILabel = {
+  private let repositoryNameLabel: UILabel = {
     let label = UILabel()
-    label.textColor = UIColor(hexString: "005cc5")
+    label.textColor = .repositoryBlue
     label.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
     label.textAlignment = .left
-    label.numberOfLines = 0
+    label.numberOfLines = 1
     label.adjustsFontSizeToFitWidth = true
     label.minimumScaleFactor = 0.5
     return label
   }()
 
-  private let lastUpdateLabel : UILabel = {
+  private let lastUpdateLabel: UILabel = {
     let label = UILabel()
-    label.textColor = UIColor(hexString: "444d56")
+    label.textColor = .repositoryLightGray
     label.font = UIFont(name: "HelveticaNeue", size: 14)
     label.textAlignment = .right
-    label.numberOfLines = 0
+    label.numberOfLines = 1
     return label
   }()
 
-  private let languageLabel : UILabel = {
+  private let languageLabel: UILabel = {
     let label = UILabel()
-    label.textColor = UIColor(hexString: "444d56")
+    label.textColor = .repositoryLightGray
     label.font = UIFont(name: "HelveticaNeue", size: 14)
     label.textAlignment = .left
-    label.numberOfLines = 0
+    label.numberOfLines = 1
     return label
   }()
 

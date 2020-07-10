@@ -34,6 +34,10 @@ class MainCoordinator: Coordinator {
     showMain(on: window)
   }
 
+  func showRepositoryDetais(repository: RepositoryModel?) {
+      repositoryDetails(repository)
+  }
+
   // MARK: - Private API
 
   private func didFinishMain() {
@@ -55,5 +59,13 @@ class MainCoordinator: Coordinator {
     navigationController.navigationBar.titleTextAttributes = textAttributes
     guard let window = window else { return }
     UIApplication.switch(on: window, to: navigationController, animated: true)
+  }
+
+  private func repositoryDetails(_ repository: RepositoryModel?) {
+      let documentsCoordinator = RepositoryDetailsCoordinator(navController: navigationController)
+      documentsCoordinator.parentCoordinator = self
+      childCoordinators.append(documentsCoordinator)
+      documentsCoordinator.repository = repository
+      documentsCoordinator.start()
   }
 }

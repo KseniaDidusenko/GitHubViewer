@@ -27,7 +27,7 @@ class GitHubService {
       case created
       case updated
       case pushed
-      case full_name
+      case fullName = "full_name"
   }
 
   public enum RepositoriesDirection: String {
@@ -62,32 +62,22 @@ class GitHubService {
 //        "client_secret": GithubConstants.clientSecret.rawValue
 //    ]
     guard let URL = components.url else { return }
-    //    // Set the POST parameters.
-    //    let postParams = "grant_type=" + grantType + "&code=" + authCode + "&client_id=" + GithubConstants.clientId.rawValue + "&client_secret=" + GithubConstants.clientSecret.rawValue
-    //    let postData = postParams.data(using: String.Encoding.utf8)
-    //    let request = NSMutableURLRequest(url: URL(string: GithubConstants.tokenUrl.rawValue)!)
-    //    request.httpMethod = "POST"
-    //    request.httpBody = postData
-    //    request.addValue("application/json", forHTTPHeaderField: "Accept")
     var headers = HTTPHeaders()
     headers = [
-        "Content-Type" :"text/html; charset=UTF-8",
-        //"Content-Type": "application/json",
-        //"Content-Type": "application/x-www-form-urlencoded",
-        //"Accept": "application/json",
+        "Content-Type": "text/html; charset=UTF-8",
         "Accept": "application/json"
     ]
     networkService.requestAuthorize(apiMethod: URL.absoluteString,
-                           method: .post,
-                           parameters: nil,
-                           headers: headers,
-                           responseClass: TokenModel.self) { result in
-                            switch result {
-                            case .success(let data):
-                              completion(.success(data))
-                            case .failure(let error):
-                              completion(.failure(error))
-                            }
+                                    method: .post,
+                                    parameters: nil,
+                                    headers: headers,
+                                    responseClass: TokenModel.self) { result in
+                                      switch result {
+                                      case .success(let data):
+                                        completion(.success(data))
+                                      case .failure(let error):
+                                        completion(.failure(error))
+                                      }
     }
   }
   func getUserProfile(accessToken: String, completion: @escaping UserResultClosure) {
@@ -111,7 +101,7 @@ class GitHubService {
   }
 
   func getRepositories(sort: RepositoriesSort? = nil, direction: RepositoriesDirection? = nil, completion: @escaping RepositoryResultClosure) {
-    var parameters = [String : String]()
+    var parameters = [String: String]()
     if let sort = sort {
         parameters["sort"] = sort.rawValue
     }
@@ -133,8 +123,6 @@ class GitHubService {
                             }
     }
   }
-
-
 
   // MARK: - Private API
 

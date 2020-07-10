@@ -25,4 +25,3 @@ struct UserModel: Codable {
     case name
   }
 }
-

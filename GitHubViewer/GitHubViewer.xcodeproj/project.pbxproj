@@ -31,6 +31,11 @@
 		CE8EBDEB24AB7F5B0020B923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8EBDEA24AB7F5B0020B923 /* Assets.xcassets */; };
 		CE8EBDEE24AB7F5B0020B923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8EBDEC24AB7F5B0020B923 /* LaunchScreen.storyboard */; };
 		CE8EBDFF24ABBB2D0020B923 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBDFE24ABBB2D0020B923 /* SignInViewController.swift */; };
+		CEAD10FA24B8899500F389AB /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD10F924B8899500F389AB /* UIFont+Extensions.swift */; };
+		CEB3B01024B7BC4400B9108D /* RepositoryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB3B00F24B7BC4400B9108D /* RepositoryDetailsViewController.swift */; };
+		CEB3B01224B7BC7200B9108D /* RepositoryDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB3B01124B7BC7200B9108D /* RepositoryDetailsCoordinator.swift */; };
+		CEB3B01424B7D09D00B9108D /* RepositoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB3B01324B7D09D00B9108D /* RepositoryDetailView.swift */; };
+		CEB3B01724B7DE2D00B9108D /* UIColor+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB3B01624B7DE2D00B9108D /* UIColor+CustomColors.swift */; };
 		CECEFAE424B6844F00BCDE99 /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEFAE324B6844F00BCDE99 /* RepositoryCell.swift */; };
 		CECEFAE624B691D900BCDE99 /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECEFAE524B691D900BCDE99 /* RepositoryModel.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +69,11 @@
 		CE8EBDED24AB7F5B0020B923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE8EBDEF24AB7F5B0020B923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE8EBDFE24ABBB2D0020B923 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		CEAD10F924B8899500F389AB /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		CEB3B00F24B7BC4400B9108D /* RepositoryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsViewController.swift; sourceTree = "<group>"; };
+		CEB3B01124B7BC7200B9108D /* RepositoryDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsCoordinator.swift; sourceTree = "<group>"; };
+		CEB3B01324B7D09D00B9108D /* RepositoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailView.swift; sourceTree = "<group>"; };
+		CEB3B01624B7DE2D00B9108D /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColors.swift"; sourceTree = "<group>"; };
 		CECEFAE324B6844F00BCDE99 /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		CECEFAE524B691D900BCDE99 /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +112,7 @@
 			children = (
 				CE03382D24AD3C2800F73115 /* SignInView.swift */,
 				CE42DDF124B3D0FA005B3E25 /* UserInfoView.swift */,
+				CEB3B01324B7D09D00B9108D /* RepositoryDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -121,6 +132,7 @@
 				CE42DDEB24B3C928005B3E25 /* AppCoordinator.swift */,
 				CE42DDED24B3C9FC005B3E25 /* MainCoordinator.swift */,
 				CE42DDEF24B3CAF7005B3E25 /* SignInCoordinator.swift */,
+				CEB3B01124B7BC7200B9108D /* RepositoryDetailsCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -166,11 +178,13 @@
 			isa = PBXGroup;
 			children = (
 				CE03382F24AD414600F73115 /* UIColor+Extensions.swift */,
+				CEB3B01624B7DE2D00B9108D /* UIColor+CustomColors.swift */,
 				CE42DDD524B325A7005B3E25 /* Typealias+Extension.swift */,
 				CE42DDDC24B3A3DE005B3E25 /* UserDefaults+Extensions.swift */,
 				CE42DDDE24B3A40B005B3E25 /* DefaultsKey.swift */,
 				CE42DDE424B3C07C005B3E25 /* UIApplication+Extensions.swift */,
 				CE42DDE624B3C362005B3E25 /* UIViewController+Extensions.swift */,
+				CEAD10F924B8899500F389AB /* UIFont+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -214,6 +228,7 @@
 				CECEFAE224B6842300BCDE99 /* Cell */,
 				CE8EBDFE24ABBB2D0020B923 /* SignInViewController.swift */,
 				CE35C26024B525DC00C72D9B /* MainInfoViewController.swift */,
+				CEB3B00F24B7BC4400B9108D /* RepositoryDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -248,6 +263,7 @@
 				CE8EBDDB24AB7F570020B923 /* Frameworks */,
 				CE8EBDDC24AB7F570020B923 /* Resources */,
 				22BE9C48F12B8B1E8B479FF0 /* [CP] Embed Pods Frameworks */,
+				CEB3B01524B7DCE900B9108D /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -343,6 +359,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CEB3B01524B7DCE900B9108D /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -353,8 +387,12 @@
 				CE42DDD924B3902A005B3E25 /* PersistentDataManager.swift in Sources */,
 				CE8EBDFF24ABBB2D0020B923 /* SignInViewController.swift in Sources */,
 				CE03383024AD414600F73115 /* UIColor+Extensions.swift in Sources */,
+				CEB3B01224B7BC7200B9108D /* RepositoryDetailsCoordinator.swift in Sources */,
 				CE84C16D24AF77280019F016 /* GitHubService.swift in Sources */,
+				CEB3B01424B7D09D00B9108D /* RepositoryDetailView.swift in Sources */,
+				CEAD10FA24B8899500F389AB /* UIFont+Extensions.swift in Sources */,
 				CE42DDF024B3CAF7005B3E25 /* SignInCoordinator.swift in Sources */,
+				CEB3B01024B7BC4400B9108D /* RepositoryDetailsViewController.swift in Sources */,
 				CE42DDDD24B3A3DE005B3E25 /* UserDefaults+Extensions.swift in Sources */,
 				CE42DDE724B3C362005B3E25 /* UIViewController+Extensions.swift in Sources */,
 				CE35C26124B525DC00C72D9B /* MainInfoViewController.swift in Sources */,
@@ -369,6 +407,7 @@
 				CECEFAE424B6844F00BCDE99 /* RepositoryCell.swift in Sources */,
 				CE42DDEE24B3C9FC005B3E25 /* MainCoordinator.swift in Sources */,
 				CE42DDDF24B3A40B005B3E25 /* DefaultsKey.swift in Sources */,
+				CEB3B01724B7DE2D00B9108D /* UIColor+CustomColors.swift in Sources */,
 				CE42DDEC24B3C928005B3E25 /* AppCoordinator.swift in Sources */,
 				CE03382E24AD3C2800F73115 /* SignInView.swift in Sources */,
 				CE42DDD024B31E17005B3E25 /* UserModel.swift in Sources */,
