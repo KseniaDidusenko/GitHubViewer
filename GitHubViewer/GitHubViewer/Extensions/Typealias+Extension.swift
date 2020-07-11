@@ -12,3 +12,5 @@ typealias TokenResultClosure = (Result<TokenModel>) -> Void
 typealias UserResultClosure = (Result<UserModel>) -> Void
 typealias RepositoryResultClosure = (Result<[RepositoryModel]>) -> Void
 typealias EmptyClosure = () -> Void
+typealias EmptyResultClosure = (Result<Void>) -> Void
+typealias LanguagesResultClosure = (Result<LanguageModel>) -> Void

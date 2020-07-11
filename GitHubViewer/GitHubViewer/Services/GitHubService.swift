@@ -21,18 +21,19 @@ class GitHubService {
     case tokenUrl = "/login/oauth/access_token/"
     case userUrl = "/user"
     case repositoryUrl = "/user/repos"
+    case deleteRepositoryUrl = "/repos/"
   }
 
   public enum RepositoriesSort: String {
-      case created
-      case updated
-      case pushed
-      case fullName = "full_name"
+    case created
+    case updated
+    case pushed
+    case fullName = "full_name"
   }
 
   public enum RepositoriesDirection: String {
-      case asc
-      case desc
+    case asc
+    case desc
   }
 
   // MARK: - Private properties
@@ -53,19 +54,12 @@ class GitHubService {
       URLQueryItem(name: "code", value: authCode),
       URLQueryItem(name: "client_id", value: GithubConstants.clientId.rawValue),
       URLQueryItem(name: "client_secret", value: GithubConstants.clientSecret.rawValue)
-//      URLQueryItem(name: "Accept", value: "application/json")
     ]
-//    let parameters = [
-//        "grant_type": grantType,
-//        "code": authCode,
-//        "client_id": GithubConstants.clientId.rawValue,
-//        "client_secret": GithubConstants.clientSecret.rawValue
-//    ]
     guard let URL = components.url else { return }
     var headers = HTTPHeaders()
     headers = [
-        "Content-Type": "text/html; charset=UTF-8",
-        "Accept": "application/json"
+      "Content-Type": "text/html; charset=UTF-8",
+      "Accept": "application/json"
     ]
     networkService.requestAuthorize(apiMethod: URL.absoluteString,
                                     method: .post,
@@ -81,9 +75,6 @@ class GitHubService {
     }
   }
   func getUserProfile(accessToken: String, completion: @escaping UserResultClosure) {
-//    let verify: NSURL = NSURL(string: tokenURLFull)!
-    //      let request: NSMutableURLRequest = NSMutableURLRequest(url: verify as URL)
-    //      request.addValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
     let headers: HTTPHeaders = [
       "Authorization": "Bearer \(accessToken)"
     ]
@@ -103,10 +94,10 @@ class GitHubService {
   func getRepositories(sort: RepositoriesSort? = nil, direction: RepositoriesDirection? = nil, completion: @escaping RepositoryResultClosure) {
     var parameters = [String: String]()
     if let sort = sort {
-        parameters["sort"] = sort.rawValue
+      parameters["sort"] = sort.rawValue
     }
     if let direction = direction {
-        parameters["direction"] = direction.rawValue
+      parameters["direction"] = direction.rawValue
     }
     let headers: HTTPHeaders = [
       "Authorization": "Bearer \((accessToken) ?? "")"
@@ -118,6 +109,41 @@ class GitHubService {
                             switch result {
                             case .success(let data):
                               completion(.success(data))
+                            case .failure(let error):
+                              completion(.failure(error))
+                            }
+    }
+  }
+
+  func deleteRepository(fullName: String, completion: @escaping EmptyResultClosure) {
+    let headers: HTTPHeaders = [
+      "Authorization": "Bearer \((accessToken) ?? "")"
+    ]
+    networkService.request(apiMethod: GithubConstants.deleteRepositoryUrl.rawValue + fullName,
+                           method: .delete,
+                           parameters: nil,
+                           headers: headers,
+                           responseClass: NetworkService.EmptyResponse.self) { result in
+                            switch result {
+                            case .success:
+                              completion(.voidSuccess)
+                            case .failure(let error):
+                              completion(.failure(error))
+                            }
+    }
+  }
+
+  func getLanguages(fullName: String, completion: @escaping LanguagesResultClosure) {
+    let headers: HTTPHeaders = [
+      "Authorization": "Bearer \((accessToken) ?? "")"
+    ]
+    networkService.request(apiMethod: GithubConstants.deleteRepositoryUrl.rawValue + fullName + "/languages",
+                           parameters: nil,
+                           headers: headers,
+                           responseClass: LanguageModel.self) { result in
+                            switch result {
+                            case .success(let data):
+                            completion(.success(data))
                             case .failure(let error):
                               completion(.failure(error))
                             }

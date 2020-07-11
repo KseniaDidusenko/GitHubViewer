@@ -34,8 +34,8 @@ class MainCoordinator: Coordinator {
     showMain(on: window)
   }
 
-  func showRepositoryDetais(repository: RepositoryModel?) {
-      repositoryDetails(repository)
+  func showRepositoryDetais(repository: RepositoryModel?, languages: NSMutableString?) {
+    repositoryDetails(repository, languages)
   }
 
   // MARK: - Private API
@@ -61,11 +61,12 @@ class MainCoordinator: Coordinator {
     UIApplication.switch(on: window, to: navigationController, animated: true)
   }
 
-  private func repositoryDetails(_ repository: RepositoryModel?) {
-      let documentsCoordinator = RepositoryDetailsCoordinator(navController: navigationController)
-      documentsCoordinator.parentCoordinator = self
-      childCoordinators.append(documentsCoordinator)
-      documentsCoordinator.repository = repository
-      documentsCoordinator.start()
+  private func repositoryDetails(_ repository: RepositoryModel?, _ languages: NSMutableString?) {
+    let repositoryDetailsCoordinator = RepositoryDetailsCoordinator(navController: navigationController)
+    repositoryDetailsCoordinator.parentCoordinator = self
+    childCoordinators.append(repositoryDetailsCoordinator)
+    repositoryDetailsCoordinator.repository = repository
+    repositoryDetailsCoordinator.languages = languages
+    repositoryDetailsCoordinator.start()
   }
 }

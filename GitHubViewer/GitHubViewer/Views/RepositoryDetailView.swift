@@ -125,10 +125,10 @@ class RepositoryDetailView: UIView {
 
   // MARK: - Public API
 
-  init(frame: CGRect, data: RepositoryModel) {
+  init(frame: CGRect, data: RepositoryModel, languages: NSMutableString) {
     super.init(frame: frame)
     //    repositoryData = data
-    createSubviews(with: data)
+    createSubviews(with: data, languages: languages)
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -140,8 +140,7 @@ class RepositoryDetailView: UIView {
 
   // MARK: - Private API
 
-  private func createSubviews(with repositoryData: RepositoryModel) {
-//    addSubview(stackview)
+  private func createSubviews(with repositoryData: RepositoryModel, languages: NSMutableString) {
     addSubview(view)
     view.addSubview(stackview)
     stackview.addArrangedSubview(repositoryNameLabel)
@@ -155,23 +154,18 @@ class RepositoryDetailView: UIView {
     languageStackview.addArrangedSubview(languagesLabel)
     stackview.clipsToBounds = false
     applyLayout()
-    setData(repositoryData)
+    setData(repositoryData, languages)
   }
 
   private func applyLayout() {
     stackview.snp.makeConstraints { make in
       make.leading.top.trailing.equalTo(view).inset(10)
-//      make.bottom.greaterThanOrEqualTo(view.snp.bottom).inset(20)
-//      make.bottom.equalTo(view.snp.bottom).inset(100).priority(750)
     }
     view.snp.makeConstraints { make in
       make.leading.top.trailing.bottom.equalToSuperview()
     }
     languagesLabel.setContentCompressionResistancePriority(UILayoutPriority(999), for: .horizontal)
     languagesTitleLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 1000), for: .horizontal)
-//    languageStackview.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 1000), for: .vertical)
-//    languageStackview.setContentHuggingPriority(UILayoutPriority(rawValue: 1000), for: .vertical)
-
   }
 
   private func customizeLabel(label: UILabel,
@@ -226,12 +220,12 @@ class RepositoryDetailView: UIView {
     }
   }
 
-  private func setData(_ repositoryData: RepositoryModel) {
+  private func setData(_ repositoryData: RepositoryModel, _ languages: NSMutableString) {
     setupLabel(repositoryNameLabel, baseText: "Name: ", text: repositoryData.name, color: .repositoryBlue, font: .defaultBoldFont)
     setupLabel(repositoryFullNameLabel, baseText: "Full name: ", text: repositoryData.fullName, color: .repositoryBlue, font: .defaultBoldFont)
     setupLabel(descriptionLabel, baseText: "Description: ", text: repositoryData.description)
     languagesTitleLabel.text = "Language:"
-    languagesLabel.text = repositoryData.language
+    languagesLabel.text = languages as String
     customizeLabel(label: starsCountLabel,
                    baseText: "Stars: ",
                    text: String(repositoryData.stargazersCount ?? 0),

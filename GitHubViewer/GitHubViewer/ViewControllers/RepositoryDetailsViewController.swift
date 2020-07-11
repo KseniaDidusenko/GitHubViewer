@@ -14,6 +14,7 @@ class RepositoryDetailsViewController: UIViewController {
 
   weak var coordinatorRepository: RepositoryDetailsCoordinator?
   var repository: RepositoryModel?
+  var languages: NSMutableString?
 
   // MARK: - Outlets
 
@@ -25,6 +26,11 @@ class RepositoryDetailsViewController: UIViewController {
   }()
 
   // MARK: - View controller view's lifecycle
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+//    getLanguages(fullName: repository?.fullName ?? "")
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -69,9 +75,26 @@ class RepositoryDetailsViewController: UIViewController {
                                   message: "This action cannot be undone." +
       " This will permanently delete the \(repositoryName) repository, wiki, issues, comments, packages, secrets, workflow runs, and remove all collaborator associations.",
       preferredStyle: UIAlertController.Style.alert)
-    alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: nil))
-    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+    let deleteAction = UIAlertAction(title: "Delete", style: UIAlertAction.Style.default) { _ in self.deleteRepository() }
+    let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+    alert.addAction(deleteAction)
+    alert.addAction(cancelAction)
     self.present(alert, animated: true, completion: nil)
+  }
+
+  private func deleteRepository() {
+    GitHubService().deleteRepository(fullName: repository?.fullName ?? "") { result in
+      switch result {
+      case .success:
+        let alert = UIAlertController(title: "", message: "Repository successfully deleted.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel) { _ in
+          self.navigationController?.popViewController(animated: true)
+        })
+        self.present(alert, animated: true, completion: nil )
+      case .failure(let error):
+        self.showAlert(title: "Error", message: error.localizedDescription)
+      }
+    }
   }
 
   private func openRepositoryInBrowser() {
@@ -82,7 +105,8 @@ class RepositoryDetailsViewController: UIViewController {
   private func addCustomView() {
     scrollView.delegate = self
     guard let repository = repository else { return }
-    let repositoryDetailView = RepositoryDetailView(frame: self.view.frame, data: repository)
+    guard let languages = languages else { return }
+    let repositoryDetailView = RepositoryDetailView(frame: self.view.frame, data: repository, languages: languages)
     scrollView.addSubview(repositoryDetailView)
     view.addSubview(scrollView)
     scrollView.snp.makeConstraints { make in

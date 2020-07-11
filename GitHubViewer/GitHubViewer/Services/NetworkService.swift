@@ -61,10 +61,6 @@ class NetworkService {
                            headers: HTTPHeaders? = nil,
                            responseClass: T.Type,
                            completion: @escaping (Result<T>) -> Void) -> DataRequest {
-    //    var mergedHeaders = headers ?? HTTPHeaders()
-    //    if let token = KeychainManager.shared().accessToken {
-    //      mergedHeaders.add(name: tokenKey, value: token)
-    //    }
     let request = AF
       .request(urlForApiMethod(apiMethod),
                method: method,
@@ -75,6 +71,10 @@ class NetworkService {
       .responseJSON { response in
         switch response.result {
         case .success:
+          if response.response?.statusCode == 204 && method == .delete {
+            completion(.success(self.emptyResult()))
+            return
+          }
           guard let data = response.data else {
             self.showBanner(title: "API Error", subtitle: "Server returns no data")
             completion(.failure(Errors.noDataReturned as NSError))
@@ -105,10 +105,6 @@ class NetworkService {
                                     headers: HTTPHeaders? = nil,
                                     responseClass: T.Type,
                                     completion: @escaping (Result<T>) -> Void) -> DataRequest {
-    //    var mergedHeaders = headers ?? HTTPHeaders()
-    //    if let token = KeychainManager.shared().accessToken {
-    //      mergedHeaders.add(name: tokenKey, value: token)
-    //    }
     let request = AF
       .request(urlForAuthorize(apiMethod),
                method: method,

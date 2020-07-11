@@ -25,18 +25,27 @@ class MainInfoViewController: UIViewController {
   // MARK: - Private properties
 
   private let tableView = UITableView()
-  private var repositiesData = [RepositoryModel]()
+  private var repositoriesData = [RepositoryModel]()
+  private var refreshControl = UIRefreshControl()
 
   // MARK: - View controller view's lifecycle
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    getRepositories()
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
     getData()
-    getRepositories()
     setupNavigationBar()
+    refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    tableView.addSubview(refreshControl) // not required when using UITableViewController
   }
-
+  @objc func refresh(_ sender: AnyObject) {
+    getRepositories()
+  }
   // MARK: - Navigation
 
   // MARK: - Actions
@@ -99,24 +108,60 @@ class MainInfoViewController: UIViewController {
       guard let self = self else { return }
       switch result {
       case .success(let data):
-        self.repositiesData = data
+        self.repositoriesData = data
+        self.refreshControl.endRefreshing()
         self.tableView.reloadData()
       case .failure(let error):
         print(error.localizedDescription)
       }
     }
   }
+
+  private func getLanguages(fullName: String, repository: RepositoryModel) {
+    GitHubService().getLanguages(fullName: fullName) { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .success(let data):
+        let languages = self.getPercentOfLanguages(data)
+        self.coordinatorMain?.showRepositoryDetais(repository: repository, languages: languages)
+      case .failure(let error):
+        print(error.localizedDescription)
+      }
+    }
+  }
+
+  private func getPercentOfLanguages(_ data: LanguageModel) -> NSMutableString {
+    var dictionary = [String: Int]()
+    for case let (label?, value) in Mirror(reflecting: data)
+      .children.map({ ($0.label, $0.value) }) {
+        if let value = value as? Int {
+          dictionary[label] = value
+        }
+    }
+    var allAmountOfBytes = 0
+    let languages = NSMutableString()
+    for (_, value) in dictionary {
+      allAmountOfBytes += value
+    }
+    for (key, value) in dictionary {
+      let percent = Float((value * 100)) / Float(allAmountOfBytes)
+      let roundedValue = roundf(percent * 10) / 10
+      languages.append("\(key.capitalizingFirstLetter()): \(roundedValue)% \n")
+    }
+    print(languages)
+    return languages
+  }
 }
 
 extension MainInfoViewController: UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return repositiesData.count
+    return repositoriesData.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RepositoryCell else { return UITableViewCell() }
-    cell.setupCell(repositiesData[indexPath.row])
+    cell.setupCell(repositoriesData[indexPath.row])
     return cell
   }
 }
@@ -125,6 +170,6 @@ extension MainInfoViewController: UITableViewDelegate {
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    coordinatorMain?.showRepositoryDetais(repository: repositiesData[indexPath.row])
+    getLanguages(fullName: repositoriesData[indexPath.row].fullName ?? "", repository: repositoriesData[indexPath.row])
   }
 }
