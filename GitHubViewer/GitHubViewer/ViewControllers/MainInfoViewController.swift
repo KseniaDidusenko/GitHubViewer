@@ -27,6 +27,7 @@ class MainInfoViewController: UIViewController {
   private let tableView = UITableView()
   private var repositoriesData = [RepositoryModel]()
   private var refreshControl = UIRefreshControl()
+  private var userData: UserModel?
 
   // MARK: - View controller view's lifecycle
 
@@ -66,6 +67,7 @@ class MainInfoViewController: UIViewController {
       switch result {
       case .success(let user):
         self.addCustomView(userData: user)
+        self.userData = user
       case .failure(let error):
         print(error.localizedDescription)
       }
@@ -92,8 +94,8 @@ class MainInfoViewController: UIViewController {
     repositoryNewButton.addTarget(self, action: #selector(createNewRepository), for: .touchUpInside)
     repositoryNewButton.setTitle("New", for: .normal)
     repositoryNewButton.setTitleColor(.white, for: .normal)
-    repositoryNewButton.backgroundColor = UIColor(hexString: "28a745")
-    repositoryNewButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: 16) ?? UIFont.systemFont(ofSize: 16)
+    repositoryNewButton.backgroundColor = .repositoryGreen
+    repositoryNewButton.titleLabel?.font = .defaultBoldFont
     repositoryNewButton.clipsToBounds = true
     repositoryNewButton.layer.cornerRadius = 5
     let item = UIBarButtonItem(customView: repositoryNewButton)
@@ -101,6 +103,8 @@ class MainInfoViewController: UIViewController {
   }
 
   @objc func createNewRepository() {
+    guard let userData = userData else { return }
+    coordinatorMain?.showNewRepository(owner: userData.login)
   }
 
   private func getRepositories() {

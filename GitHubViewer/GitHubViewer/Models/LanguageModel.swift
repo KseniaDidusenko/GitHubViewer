@@ -30,7 +30,7 @@ struct LanguageModel: Codable {
   var shell: Int?
   var swift: Int?
 
-  enum CodingKeys: String, CodingKey, Encodable {
+  enum CodingKeys: String, CodingKey {
     case c = "C"
     case cSharp = "C#"
     case cPP = "C++"

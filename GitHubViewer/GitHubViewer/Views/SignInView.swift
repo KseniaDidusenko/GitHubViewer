@@ -30,10 +30,10 @@ class SignInView: UIView {
     button.setTitle("Sign In GitHub", for: .normal)
     button.titleLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: 14)
     button.setTitleColor(.white, for: .normal)
-    button.backgroundColor = UIColor(hexString: "28a745")
+    button.backgroundColor = .repositoryGreen
     button.layer.cornerRadius = 20
     button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor(hexString: "28a745").cgColor
+    button.layer.borderColor = UIColor.repositoryGreen.cgColor
     return button
   }()
 

@@ -98,6 +98,7 @@ class NetworkService {
     return request
   }
 
+  @discardableResult
   func requestAuthorize<T: Codable>(apiMethod: String,
                                     method: HTTPMethod = .get,
                                     parameters: Parameters?,

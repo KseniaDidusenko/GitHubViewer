@@ -22,6 +22,8 @@ class GitHubService {
     case userUrl = "/user"
     case repositoryUrl = "/user/repos"
     case deleteRepositoryUrl = "/repos/"
+    case gitignoreListUrl = "/gitignore/templates"
+    case gitLicenseUrl = "/licenses"
   }
 
   public enum RepositoriesSort: String {
@@ -147,6 +149,62 @@ class GitHubService {
                             case .failure(let error):
                               completion(.failure(error))
                             }
+    }
+  }
+
+  func getGitignoreList(completion: @escaping GitIgnoreResultClosure) {
+    networkService.request(apiMethod: GithubConstants.gitignoreListUrl.rawValue,
+                           parameters: nil,
+                           responseClass: [String].self) { result in
+                            switch result {
+                            case .success(let data):
+                            completion(.success(data))
+                            case .failure(let error):
+                              completion(.failure(error))
+                            }
+    }
+  }
+
+  func getLicenseList(completion: @escaping LicenseResultClosure) {
+    networkService.request(apiMethod: GithubConstants.gitLicenseUrl.rawValue,
+                           parameters: nil,
+                           responseClass: [LicenseModel].self) { result in
+                            switch result {
+                            case .success(let data):
+                            completion(.success(data))
+                            case .failure(let error):
+                              completion(.failure(error))
+                            }
+    }
+  }
+
+  func createUser(_ repository: NewRepositoryModel, completion: @escaping NewRepositoryResultClosure) {
+    let headers: HTTPHeaders = [
+      "Authorization": "Bearer \((accessToken) ?? "")"
+    ]
+    let encoder = JSONEncoder()
+    encoder.outputFormatting = .prettyPrinted
+    guard let data = try? encoder.encode(repository) else {
+      completion(.failure(NetworkService.Errors.requestEncodingError))
+      return
+    }
+    guard let params = Data().jsonDictionary(data) else {
+      completion(.failure(NetworkService.Errors.requestNotValidJson))
+      return
+    }
+    networkService.request(
+      apiMethod: GithubConstants.repositoryUrl.rawValue,
+      method: .post,
+      parameters: params,
+      encoding: JSONEncoding.default,
+      headers: headers,
+      responseClass: RepositoryModel.self) { result in
+        switch result {
+        case .success(let data):
+          completion(.success(data))
+        case .failure(let error):
+          completion(.failure(error))
+        }
     }
   }
 

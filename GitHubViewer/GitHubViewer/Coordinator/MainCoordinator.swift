@@ -38,6 +38,10 @@ class MainCoordinator: Coordinator {
     repositoryDetails(repository, languages)
   }
 
+  func showNewRepository(owner: String?) {
+    newRepository(owner: owner)
+  }
+
   // MARK: - Private API
 
   private func didFinishMain() {
@@ -54,7 +58,7 @@ class MainCoordinator: Coordinator {
     navigationController.navigationBar.barTintColor = UIColor(hexString: "#333333")
     let textAttributes = [
       NSAttributedString.Key.foregroundColor: UIColor.white,
-      .font: UIFont(name: "HelveticaNeue-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)
+      .font: UIFont.defaultNavigationBarFont
     ]
     navigationController.navigationBar.titleTextAttributes = textAttributes
     guard let window = window else { return }
@@ -68,5 +72,13 @@ class MainCoordinator: Coordinator {
     repositoryDetailsCoordinator.repository = repository
     repositoryDetailsCoordinator.languages = languages
     repositoryDetailsCoordinator.start()
+  }
+
+  private func newRepository(owner: String?) {
+    let newRepositoryCoordinator = NewRepositoryCoordinator(navController: navigationController)
+    newRepositoryCoordinator.parentCoordinator = self
+    newRepositoryCoordinator.owner = owner
+    childCoordinators.append(newRepositoryCoordinator)
+    newRepositoryCoordinator.start()
   }
 }

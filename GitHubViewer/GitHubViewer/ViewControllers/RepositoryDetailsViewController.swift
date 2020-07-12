@@ -29,7 +29,6 @@ class RepositoryDetailsViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-//    getLanguages(fullName: repository?.fullName ?? "")
   }
 
   override func viewDidLoad() {
