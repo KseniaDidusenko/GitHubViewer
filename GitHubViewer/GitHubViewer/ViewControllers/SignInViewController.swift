@@ -32,7 +32,6 @@ class SignInViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-//    view.backgroundColor = .purple
     signInView.didButtonTapped = { [weak self] button in
       self?.signInButtonTapped(button)
     }
@@ -60,7 +59,6 @@ class SignInViewController: UIViewController {
     webView.snp.makeConstraints { make in
       make.edges.equalToSuperview()
     }
-
     let authURLFull = "https://github.com/login/oauth/authorize?client_id=" +
       GitHubService.GithubConstants.clientId.rawValue + "&scope=" +
       GitHubService.GithubConstants.scope.rawValue + "&redirect_uri=" +
@@ -78,7 +76,7 @@ class SignInViewController: UIViewController {
     githubVC.navigationItem.title = "github.com"
     navController.navigationBar.isTranslucent = false
     navController.navigationBar.tintColor = UIColor.white
-    navController.navigationBar.barTintColor = UIColor(hexString: "#333333")
+    navController.navigationBar.barTintColor = .githubDark
     navController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
     navController.modalTransitionStyle = .coverVertical
 

@@ -53,16 +53,6 @@ class NewRepositoryView: UIView {
     return label
   }()
 
-//  private let ownerTextField: UITextField = {
-//    let textField = UITextField()
-//    textField.textColor = .black
-//    textField.font = UIFont.defaultFont
-//    textField.textAlignment = .left
-//    textField.placeholder = "Owner"
-//    textField.borderStyle = .roundedRect
-//    return textField
-//  }()
-
   private let repositoryNameTextField: UITextField = {
     let textField = UITextField()
     textField.textColor = .black
@@ -82,16 +72,6 @@ class NewRepositoryView: UIView {
     stackView.contentMode = .scaleAspectFill
     return stackView
   }()
-
-//  private let ownerStackview: UIStackView = {
-//    let stackView = UIStackView()
-//    stackView.axis = NSLayoutConstraint.Axis.horizontal
-//    stackView.distribution = UIStackView.Distribution.fill
-//    stackView.alignment = UIStackView.Alignment.center
-//    stackView.spacing = 10.0
-//    stackView.contentMode = .scaleAspectFit
-//    return stackView
-//  }()
 
   private let repositoryNameStackview: UIStackView = {
     let stackView = UIStackView()
@@ -120,7 +100,6 @@ class NewRepositoryView: UIView {
     let sc = UISegmentedControl(items: ["Private", "Public"])
     sc.selectedSegmentTintColor = UIColor.white
     sc.selectedSegmentIndex = 1
-    sc.addTarget(self, action: #selector(handleSegmentedControlChange), for: .valueChanged)
     return sc
   }()
 
@@ -233,19 +212,19 @@ class NewRepositoryView: UIView {
   }
 
   func getGitignoreTextField() -> UITextField {
-      return gitignoreTextField
+    return gitignoreTextField
   }
 
   func getLicenseTextField() -> UITextField {
-      return licenseTextField
+    return licenseTextField
   }
 
   func getRepositoryNameTextField() -> UITextField {
-      return repositoryNameTextField
+    return repositoryNameTextField
   }
 
   func getDescriptionTextView() -> UITextView {
-      return descriptionTextView
+    return descriptionTextView
   }
 
   func getSegmentedControl() -> UISegmentedControl {
@@ -272,8 +251,6 @@ class NewRepositoryView: UIView {
     stackview.addArrangedSubview(segmentedControl)
     stackview.addArrangedSubview(gitignoreStackview)
     stackview.addArrangedSubview(licenseStackview)
-//    ownerStackview.addArrangedSubview(ownerTitleLabel)
-//    ownerStackview.addArrangedSubview(ownerTextField)
     repositoryNameStackview.addArrangedSubview(repositoryNameLabel)
     repositoryNameStackview.addArrangedSubview(repositoryNameTextField)
     gitignoreStackview.addArrangedSubview(gitignoreTitleLabel)
@@ -287,40 +264,20 @@ class NewRepositoryView: UIView {
   }
 
   @objc func createButtonTapped(sender: UIButton) {
-//    switch segmentedControl.selectedSegmentIndex {
-//    case 0:
-//        print("private")
-//    case 1:
-//        print("public")
-//    default:
-//      print("")
-//    }
-//    let newRepository = NewRepositoryModel(name: repositoryNameTextField.text,
-//                                           description: descriptionTextView.text,
-//                                           privacy: true,
-//                                           gitignoreTemplate: "",
-//                                           licenseTemplate: "")
-      didButtonTapped?(sender)
+    didButtonTapped?(sender)
   }
 
   private func applyLayout() {
     stackview.snp.makeConstraints { make in
       make.leading.top.trailing.equalToSuperview().inset(10)
     }
-//    view.snp.makeConstraints { make in
-//      make.leading.top.trailing.bottom.equalToSuperview()
-//    }
     segmentedControl.snp.makeConstraints { make in
       make.trailing.leading.equalTo(stackview).inset(10)
     }
-
     descriptionTextView.snp.makeConstraints { make in
       make.height.equalTo(80)
       make.trailing.leading.equalTo(stackview).inset(10)
     }
-//    ownerTextField.snp.makeConstraints { make in
-//      make.trailing.equalTo(stackview).inset(10)
-//    }
     repositoryNameTextField.snp.makeConstraints { make in
       make.trailing.equalTo(stackview).inset(10)
     }
@@ -336,12 +293,6 @@ class NewRepositoryView: UIView {
       make.width.equalTo(160)
       make.height.equalTo(40)
     }
-//    ownerTextField.setContentCompressionResistancePriority(UILayoutPriority(999), for: .horizontal)
-//    ownerTitleLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 1000), for: .horizontal)
-  }
-
-  @objc private func handleSegmentedControlChange() {
-
   }
 
   private func setupLabel(_ label: UILabel?, baseText: String = "", text: String?, color: UIColor = .black, font: UIFont = UIFont.defaultFont) {
@@ -350,14 +301,14 @@ class NewRepositoryView: UIView {
       attributes: [
         .foregroundColor: UIColor.black,
         .font: UIFont.defaultBoldFont
-    ])
+      ])
     if let text = text, !text.isEmpty {
       let detailTitle = NSAttributedString(
         string: text,
         attributes: [
           .foregroundColor: color,
           .font: font
-      ])
+        ])
       baseTitle.append(detailTitle)
       label?.attributedText = baseTitle
     } else {
@@ -367,7 +318,6 @@ class NewRepositoryView: UIView {
 
   private func setData() {
     repositoryNameLabel.text = "Repository Name:"
-//    ownerTitleLabel.text = "Owner:"
     setupLabel(ownerTitleLabel, baseText: "Owner: ", text: repoOwner, color: .black, font: .defaultFont)
     setupLabel(descriptionLabel, baseText: "Description: ", text: "(optional)", color: .repositoryLightGray, font: .defaultSmallFont)
   }

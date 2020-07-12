@@ -17,6 +17,7 @@ struct LanguageModel: Codable {
   var dart: Int?
   var go: Int?
   var groovy: Int?
+  var hTML: Int?
   var java: Int?
   var javaScript: Int?
   var kotlin: Int?
@@ -38,6 +39,7 @@ struct LanguageModel: Codable {
     case dart = "Dart"
     case go = "Go"
     case groovy = "Groovy"
+    case hTML = "HTML"
     case java = "Java"
     case javaScript = "JavaScript"
     case kotlin = "Kotlin"

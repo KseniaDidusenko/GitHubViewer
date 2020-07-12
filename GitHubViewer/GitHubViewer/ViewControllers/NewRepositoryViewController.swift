@@ -28,29 +28,6 @@ class NewRepositoryViewController: UIViewController {
   private var repositoryDescription = UITextView()
   private var segmentedControl = UISegmentedControl()
 
-  //  private let gitignorePickerView: UIPickerView = {
-  //    let pickerView = UIPickerView()
-  //    pickerView.tag = 0
-  //    pickerView.backgroundColor = .white
-  //    return pickerView
-  //  }()
-
-
-
-
-
-  //  private let descriptionTextView: UITextView = {
-  //    let textView = UITextView()
-  //    textView.textColor = .black
-  //    textView.font = UIFont.defaultFont
-  //    textView.textAlignment = .left
-  //    textView.layer.borderColor = UIColor.repositoryLightGray.cgColor
-  //    textView.layer.borderWidth = 1
-  //    textView.isSelectable = true
-  //    textView.isEditable = false
-  //    return textView
-  //  }()
-
   // MARK: - View controller view's lifecycle
 
   override func viewDidLoad() {
@@ -58,8 +35,6 @@ class NewRepositoryViewController: UIViewController {
     hideKeyboardWhenTappedAround()
     setupNavigationBar()
     getGitignoreList()
-    //    getLicenceList()
-    //    addCustomView()
   }
 
   // MARK: - Navigation
@@ -132,7 +107,7 @@ class NewRepositoryViewController: UIViewController {
     }
   }
 
-  func createToolbar() {
+  private func createToolbar() {
     let toolbar = UIToolbar()
     toolbar.sizeToFit()
     let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(closePickerView))
@@ -143,7 +118,7 @@ class NewRepositoryViewController: UIViewController {
     gitignoreTextfield.inputAccessoryView = toolbar
   }
 
-  @objc func closePickerView() {
+  @objc private func closePickerView() {
     view.endEditing(true)
   }
 
@@ -177,7 +152,7 @@ class NewRepositoryViewController: UIViewController {
       switch result {
       case .success(let data):
         print(data)
-        let alert = UIAlertController(title: "", message: "Repository successfully created!.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "", message: "Repository successfully created!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel) { _ in
           self.navigationController?.popViewController(animated: true)
         })

@@ -46,9 +46,7 @@ class GitHubService {
   // MARK: - Public API
 
   func getAccessToken(authCode: String, completion: @escaping TokenResultClosure) {
-
     let grantType = "authorization_code"
-
     var components = URLComponents()
     components.path = GithubConstants.tokenUrl.rawValue
     components.queryItems = [
@@ -76,6 +74,7 @@ class GitHubService {
                                       }
     }
   }
+
   func getUserProfile(accessToken: String, completion: @escaping UserResultClosure) {
     let headers: HTTPHeaders = [
       "Authorization": "Bearer \(accessToken)"

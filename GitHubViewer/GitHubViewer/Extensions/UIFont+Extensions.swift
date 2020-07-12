@@ -35,7 +35,10 @@ extension UIFont {
 extension UIFont {
 
   static let defaultFont = UIFont.getCustomFont(.helveticaNeue, nil, 16.0)
+    static let defaultLabelFont = UIFont.getCustomFont(.helveticaNeue, nil, 14.0)
+    static let defaultProfileNameFont = UIFont.getCustomFont(.helveticaNeue, nil, 18.0)
   static let defaultSmallFont = UIFont.getCustomFont(.helveticaNeue, nil, 12.0)
   static let defaultBoldFont = UIFont.getCustomFont(.helveticaNeue, .bold, 16.0)
   static let defaultNavigationBarFont = UIFont.getCustomFont(.helveticaNeue, .bold, 20.0)
+    static let defaultTitleFont = UIFont.getCustomFont(.helveticaNeue, .bold, 18.0)
 }

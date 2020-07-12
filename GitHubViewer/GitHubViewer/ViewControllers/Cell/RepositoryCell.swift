@@ -17,7 +17,7 @@ class RepositoryCell: UITableViewCell {
   private let repositoryNameLabel: UILabel = {
     let label = UILabel()
     label.textColor = .repositoryBlue
-    label.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
+    label.font = .defaultTitleFont
     label.textAlignment = .left
     label.numberOfLines = 1
     label.adjustsFontSizeToFitWidth = true
@@ -28,7 +28,7 @@ class RepositoryCell: UITableViewCell {
   private let lastUpdateLabel: UILabel = {
     let label = UILabel()
     label.textColor = .repositoryLightGray
-    label.font = UIFont(name: "HelveticaNeue", size: 14)
+    label.font = .defaultLabelFont
     label.textAlignment = .right
     label.numberOfLines = 1
     return label
@@ -37,7 +37,7 @@ class RepositoryCell: UITableViewCell {
   private let languageLabel: UILabel = {
     let label = UILabel()
     label.textColor = .repositoryLightGray
-    label.font = UIFont(name: "HelveticaNeue", size: 14)
+    label.font = .defaultLabelFont
     label.textAlignment = .left
     label.numberOfLines = 1
     return label

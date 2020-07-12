@@ -119,7 +119,7 @@ class RepositoryDetailView: UIView {
     return stackView
   }()
 
-  //  var repositoryData: RepositoryModel?
+  private var repositoryData: RepositoryModel?
 
   // MARK: - Actions
 
@@ -127,15 +127,12 @@ class RepositoryDetailView: UIView {
 
   init(frame: CGRect, data: RepositoryModel, languages: NSMutableString) {
     super.init(frame: frame)
-    //    repositoryData = data
+    repositoryData = data
     createSubviews(with: data, languages: languages)
   }
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    //    if let userData = userData {
-    //      createSubviews(with: userData)
-    //    }
   }
 
   // MARK: - Private API

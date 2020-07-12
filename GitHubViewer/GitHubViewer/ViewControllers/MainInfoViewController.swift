@@ -42,7 +42,7 @@ class MainInfoViewController: UIViewController {
     getData()
     setupNavigationBar()
     refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-    tableView.addSubview(refreshControl) // not required when using UITableViewController
+    tableView.addSubview(refreshControl)
   }
   @objc func refresh(_ sender: AnyObject) {
     getRepositories()

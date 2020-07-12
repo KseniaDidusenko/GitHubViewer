@@ -13,4 +13,5 @@ extension UIColor {
   static let repositoryBlue = UIColor(hexString: "005cc5")
   static let repositoryLightGray = UIColor(hexString: "444d56")
   static let repositoryGreen = UIColor(hexString: "28a745")
+  static let githubDark = UIColor(hexString: "333333")
 }

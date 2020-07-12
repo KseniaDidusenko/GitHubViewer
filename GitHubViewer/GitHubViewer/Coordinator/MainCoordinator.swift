@@ -55,7 +55,7 @@ class MainCoordinator: Coordinator {
     navigationController.isNavigationBarHidden = false
     navigationController.navigationBar.isTranslucent = false
     mainViewController.navigationItem.title = "Profile"
-    navigationController.navigationBar.barTintColor = UIColor(hexString: "#333333")
+    navigationController.navigationBar.barTintColor = .githubDark
     let textAttributes = [
       NSAttributedString.Key.foregroundColor: UIColor.white,
       .font: UIFont.defaultNavigationBarFont

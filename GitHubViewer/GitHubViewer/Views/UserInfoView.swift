@@ -28,7 +28,7 @@ class UserInfoView: UIView {
   private let profileNameLabel: UILabel = {
     let label = UILabel()
     label.textColor = .black
-    label.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+    label.font = .defaultNavigationBarFont
     label.textAlignment = .left
     label.numberOfLines = 1
     label.adjustsFontSizeToFitWidth = true
@@ -39,7 +39,7 @@ class UserInfoView: UIView {
   private let profileLoginLabel: UILabel = {
     let label = UILabel()
     label.textColor = .repositoryLightGray
-    label.font = UIFont(name: "HelveticaNeue", size: 18)
+    label.font = .defaultProfileNameFont
     label.textAlignment = .left
     label.numberOfLines = 1
     label.adjustsFontSizeToFitWidth = true
@@ -50,8 +50,7 @@ class UserInfoView: UIView {
     private let bioLabel: UILabel = {
       let label = UILabel()
       label.textColor = .black
-  //    label.font = UIFont(name: "HelveticaNeue-Light", size: 12)
-      label.font = UIFont(name: "HelveticaNeue", size: 16)
+      label.font = .defaultFont
       label.textAlignment = .left
       label.numberOfLines = 0
       label.adjustsFontSizeToFitWidth = true
@@ -62,8 +61,7 @@ class UserInfoView: UIView {
     private let emailLabel: UILabel = {
       let label = UILabel()
       label.textColor = .black
-  //    label.font = UIFont(name: "HelveticaNeue-Light", size: 12)
-      label.font = UIFont(name: "HelveticaNeue", size: 14)
+      label.font = .defaultFont
       label.textAlignment = .left
       label.numberOfLines = 1
       label.adjustsFontSizeToFitWidth = true
@@ -92,7 +90,8 @@ class UserInfoView: UIView {
     return stackView
   }()
 
-  var userData: UserModel?
+  private var userData: UserModel?
+
   // MARK: - Actions
 
   // MARK: - Public API
@@ -143,6 +142,9 @@ class UserInfoView: UIView {
   }
 
   private func customizeEmailLabel(with email: String) {
+    if email.isEmpty {
+      emailLabel.isHidden = true
+    }
     let imageAttachment = NSTextAttachment()
     imageAttachment.image = UIImage(named: "mail")
     let imageOffsetY: CGFloat = -4.0
